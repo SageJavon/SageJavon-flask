@@ -1,3 +1,5 @@
+import numpy as np
+import mysql.connector
 import asyncio
 import json
 from threading import Thread
@@ -27,7 +29,8 @@ def async_isolated_url_content_task(url_dict: Dict[int, str], task_type: int) ->
     """
 
     """Start the crawl content task in an asyncio event loop."""
-    logger.info(f"async_isolated_url_content_task begin! url_dict: {url_dict}, task_type: {task_type}")
+    logger.info(
+        f"async_isolated_url_content_task begin! url_dict: {url_dict}, task_type: {task_type}")
     crawler_content = AsyncCrawlerSiteContent(
         domain_list=[],
         doc_source=FROM_ISOLATED_URL
@@ -67,7 +70,8 @@ def submit_isolated_url_list() -> Dict[str, Any]:
 
         # Find which URLs already exist in the database
         placeholders = ', '.join(['?'] * len(normalized_url_list))
-        cur.execute(f"SELECT id, url FROM t_isolated_url_tab WHERE url IN ({placeholders})", normalized_url_list)
+        cur.execute(
+            f"SELECT id, url FROM t_isolated_url_tab WHERE url IN ({placeholders})", normalized_url_list)
         existing_urls = {row['url']: row['id'] for row in cur.fetchall()}
         logger.warning(f"The existing_urls is {existing_urls}")
 
@@ -86,22 +90,26 @@ def submit_isolated_url_list() -> Dict[str, Any]:
             with diskcache_lock.lock():
                 # Update all existing URLs in one operation
                 if existing_to_update:
-                    cur.executemany("UPDATE t_isolated_url_tab SET doc_status = 1, mtime = ? WHERE id = ?", existing_to_update)
+                    cur.executemany(
+                        "UPDATE t_isolated_url_tab SET doc_status = 1, mtime = ? WHERE id = ?", existing_to_update)
 
                 # Insert all new URLs in one operation
                 if new_to_insert:
-                    cur.executemany("INSERT INTO t_isolated_url_tab (url, content, content_length, content_md5, doc_status, ctime, mtime) VALUES (?, '[]', 0, '', 1, ?, ?)", new_to_insert)
+                    cur.executemany(
+                        "INSERT INTO t_isolated_url_tab (url, content, content_length, content_md5, doc_status, ctime, mtime) VALUES (?, '[]', 0, '', 1, ?, ?)", new_to_insert)
 
                 conn.commit()
         except Exception as e:
             logger.error(f"Process discache_lock exception: {e}")
             return {'retcode': -30000, 'message': f'An error occurred: {e}', 'data': {}}
 
-        cur.execute(f"SELECT id, url FROM t_isolated_url_tab WHERE url IN ({placeholders})", normalized_url_list)
+        cur.execute(
+            f"SELECT id, url FROM t_isolated_url_tab WHERE url IN ({placeholders})", normalized_url_list)
         url_dict = {row['id']: row['url'] for row in cur.fetchall()}
 
         # Start the asynchronous crawl task
-        Thread(target=async_isolated_url_content_task, args=(url_dict, ADD_ISOLATED_URL_CONTENT)).start()
+        Thread(target=async_isolated_url_content_task, args=(
+            url_dict, ADD_ISOLATED_URL_CONTENT)).start()
 
         return {'retcode': 0, 'message': 'URLs processed successfully', 'data': {'url_id_list': list(url_dict.keys())}}
     except Exception as e:
@@ -125,9 +133,11 @@ def get_isolated_url_list():
 
         if url_id_list:
             placeholders = ', '.join(['?'] * len(url_id_list))
-            cur.execute(f"SELECT id, url, content_length, doc_status, ctime, mtime FROM t_isolated_url_tab WHERE id IN ({placeholders})", url_id_list)
+            cur.execute(
+                f"SELECT id, url, content_length, doc_status, ctime, mtime FROM t_isolated_url_tab WHERE id IN ({placeholders})", url_id_list)
         else:
-            cur.execute("SELECT id, url, content_length, doc_status, ctime, mtime FROM t_isolated_url_tab")
+            cur.execute(
+                "SELECT id, url, content_length, doc_status, ctime, mtime FROM t_isolated_url_tab")
 
         rows = cur.fetchall()
         response_data = {}
@@ -156,11 +166,13 @@ def delete_isolated_url_list():
         cur = conn.cursor()
 
         placeholders = ', '.join(['?'] * len(url_id_list))
-        cur.execute(f"SELECT id, url FROM t_isolated_url_tab WHERE id IN ({placeholders})", url_id_list)
+        cur.execute(
+            f"SELECT id, url FROM t_isolated_url_tab WHERE id IN ({placeholders})", url_id_list)
         url_dict = {row['id']: row['url'] for row in cur.fetchall()}
 
         # Use threading to avoid blocking the Flask application
-        Thread(target=async_isolated_url_content_task, args=(url_dict, DELETE_ISOLATED_URL_CONTENT)).start()
+        Thread(target=async_isolated_url_content_task, args=(
+            url_dict, DELETE_ISOLATED_URL_CONTENT)).start()
 
         return {'retcode': 0, 'message': 'Started deleting the isolated URL list embeddings.', 'data': {}}
     except Exception as e:
@@ -192,11 +204,12 @@ def get_isolated_url_sub_content_list():
         cur = conn.cursor()
 
         # Retrieve the content from the database
-        cur.execute('SELECT content FROM t_isolated_url_tab WHERE id = ?', (url_id,))
+        cur.execute(
+            'SELECT content FROM t_isolated_url_tab WHERE id = ?', (url_id,))
         row = cur.fetchone()
         if not row:
             return {'retcode': -30000, 'message': 'Content not found', 'data': {}}
-        
+
         content = row['content']
         content_vec = json.loads(content)
 
@@ -209,7 +222,8 @@ def get_isolated_url_sub_content_list():
 
         # Slice the content vector to get the sub-content list for the current page
         sub_content_list = [
-            {"index": start_index + index + 1, "content": part, "content_length": len(part)}
+            {"index": start_index + index + 1,
+                "content": part, "content_length": len(part)}
             for index, part in enumerate(content_vec[start_index:end_index], start=start_index)
         ]
 
@@ -227,3 +241,71 @@ def get_isolated_url_sub_content_list():
     finally:
         if conn:
             conn.close()
+
+
+qq_table = sparse.load_npz(
+    './data/qq_table.npz').toarray()
+qs_table = sparse.load_npz(
+    './data/qs_table.npz').toarray()
+ss_table = sparse.load_npz(
+    './data/ss_table.npz').toarray()
+
+
+# MySQL数据库连接配置
+db_config = {
+    'host': 'mysql.mysql',
+    'database': 'sage_javon',
+    'user': 'root',
+    'password': os.getenv('MYSQL_PASSWORD'),
+    'port': '3306'  # 默认MySQL端口
+}
+
+
+@urls_bp.route('/get_knowledge_graph', methods=['GET'])
+def get_knowledge_graph():
+    s_list = request.args.get('sList')
+    try:
+        s_list = [int(s) for s in s_list.split(',')]
+
+    except Exception:
+        return {
+            'msg': '输入格式有误'
+        }
+    s_data = [s for s in s_list]
+    for s in s_data:
+        adjusted_id = s['id'] + 398  # 假设原始数据的起始id是1
+        s['id'] = adjusted_id
+    # 元素格式:{'id': int, 'name': str}
+    s_links = []
+    for idx0, s0 in enumerate(s_list):
+        s_related = np.where(ss_table[s0] > 0)[0].tolist()  # 有关联的知识点
+        print(s_related)
+        for s1 in s_related:
+            if s1 not in s_data:
+                s_data.append(s1)
+            if ({'source': s_data.index(s1), 'target': idx0} not in s_links) and \
+                    ({'source': idx0, 'target': s_data.index(s1)} not in s_links):  # 正向或反向存在其一就不用添加了
+                s_links.append({'source': idx0, 'target': s_data.index(s1)})
+    s_data = [{'id': s} for s in s_data]  # 转化为字典数组
+    ic(s_data)
+
+    # Establish MySQL connection
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    for s in s_data:
+        cursor.execute(
+            "SELECT id, knowledge, num_q FROM knowledge WHERE id = %s", (s['id'],))
+        skill = cursor.fetchone()
+        # skill = Knowledge.query.get(s['id'])
+        s['knowledge'] = str(s['id']) + '-' + \
+            (skill.knowledge if skill.knowledge is not None else 'Unknown Skill')
+        s['symbolSize'] = (skill.num_q + 20) / 4
+    ic(s_data, s_links)
+    cursor.close()
+    conn.close()
+    return {
+        'data': {
+            'data': s_data,
+            'links': s_links
+        }
+    }

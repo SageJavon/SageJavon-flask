@@ -1,0 +1,818 @@
+problem_id,problem_text,skill_name,choiceA,choiceB,choiceC,choiceD,answer,level
+1,"执行如下代码片段后，num的值为：
+
+```java
+int num = 5;
+
+num = (num % 2) == 0 ? num – 1 : num + 1;
+```",运算符,1,4,5,6,D,0
+3,使用Java语言编写的源程序保存时的文件扩展名是,文件扩展名,.class,.java,.cpp,.txt,B,0
+4,设int a=-2，则表达式a>>>3的值为,运算符,0,3,8,-1,C,0
+5,设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是,数组访问,a[0],a[a.length-1],a[3],int i=1； a[i],C,0
+6,在类的定义中可以有两个同名函数，这种现象称为函数,方法,封装,继承,覆盖,重载,D,0
+7,在类的定义中构造函数的作用是,构造函数,保护成员变量,读取类的成员变量,描述类的特征,初始化成员变量,D,0
+8,下面关键字中，哪一个不是用于异常处理语句,异常处理,try,break,catch,finally,B,0
+9,类与对象的关系是,类与对象,类是对象的抽象,对象是类的抽象,对象是类的子类,类是对象的具体实例,A,0
+10,下面哪一个是Java中不合法的标识符,标识符,$persons,twoNum,_myVar,point,D,0
+11,为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为,静态方法,static void method( ),public void method( ),final void method( ),abstract void method( ),A,0
+12,欲构造ArrayList类的一个实例，此类继承了List接口，下列哪个方法是正确的,接口与实现类,ArrayList myList=new Object( ),List myList=new ArrayList( ),ArrayList myList=new List( ),List myList=new List( ),C,0
+13,Java源文件和编译后的文件扩展名分别为,文件扩展名,.class和 .java,.java和 .class,.class和 .class,.java和 .java,B,0
+14,在Java Applet程序用户自定义的Applet子类中，一般需要重载父类的( )方法来完成一些画图操作,Applet,start( ),stop( ),init( ),paint( ),D,0
+15,"对于一个Java源文件，import, class定义以及package正确的顺序是",java源文件,"package,import,class","class,import,package","import,package,class","package,class,import",A,0
+16,下面哪个是非法的,数据类型,int I = 32,float f = 45.0,double d = 45.0,char c = ‘u’,D,0
+17,Java语言使用的字符码集是,字符集,ASCII,BCD,DCB,Unicode,D,0
+18,如果一个类的成员变量只能在所在类中使用，则该成员变量必须使用的修饰是,访问控制,public,protected,private,static,C,0
+19,下面关于main方法说明正确的是,入口方法,public main(String args[ ]),public static void main(String args[ ]),private static void main(String args[ ]),void main(),B,0
+20,哪个关键字可以对对象加互斥锁,多线程同步,transient,synchronized,serialize,static,B,0
+21,关于抽象方法的说法正确的是,抽象类和抽象方法,可以有方法体,可以出现在非抽象类中,是没有方法体的方法,抽象类中的方法都是抽象方法,D,0
+22,java.io包的File类是,文件操作,字符流类,字节流类,对象流类,非流类,D,0
+23,Java application中的主类需包含main方法，以下哪项是main方法的正确形参？,入口方法,String args,String args[],Char arg,StringBuffer args[],B,0
+24,"以下代码段执行后的输出结果为
+```java
+int x = -3;
+int y = -10;
+System.out.println(y % x);
+```",取模运算,-1,2,1,3,A,0
+25,以下关于继承的叙述正确的是,继承,在Java中类只允许单一继承,在Java中一个类只能实现一个接口,在Java中一个类不能同时继承一个类和实现一个接口,在Java中接口只允许单一继承,A,0
+26,"若有定义：byte[] x = {11, 22, 33, -66}; 其中0≤k≤3，则对x数组元素错误的引用是",数组访问,x[5-3],x[k],x[k+5],x[0],C,0
+27,paint()方法使用哪种类型的参数?,paint,Graphics,Graphics2D,String,Color,D,0
+28,以下哪个不是Java的原始数据类型,数据类型,int,Boolean,float,char,B,0
+29,在Java中，一个类可同时定义许多同名的方法，这些方法的形式参数的个数、类型或顺序各不相同，传回的值也可以不相同。这种面向对象程序特性称为,方法重载,隐藏,重写,重载,Java不支持此特性,C,0
+30,以下有关构造方法的说法，正确的是：,构造方法,一个类的构造方法可以有多个,构造方法在类定义时被调用,构造方法只能由对象中的其它方法调用。,构造方法可以和类同名，也可以和类名不同,A,0
+31,在浏览器中执行applet 程序，以下选项中的哪个方法将被最先执行,Applet,init(),start(),destroy(),stop(),B,0
+32,"给出下面代码，关于该程序以下哪个说法是正确的？
+```java
+public class Person{
+    static int arr[] = new int[5];
+    public static void main(String a[]){
+        System.out.println(arr[0]);
+    }
+}
+```",类与对象,编译时将产生错误,编译时正确，运行时将产生错误,输出零,输出空,C,0
+33,"有以下方法的定义，请选择该方法的返回类型
+ReturnType method(byte x, double y){
+    return (short)x/y2;
+}",方法返回类型,byte,short,int,double,D,0
+34,下列类定义中哪些是合法的抽象类的定义？,抽象类和抽象方法,abstract Animal{abstract void growl();},class abstract Animal{abstract void growl();},abstract class Animal{abstract void growl();},abstract class Animal{abstract void growl(){System.out.println('growl');};,C,0
+35,"有以下程序片段，下列哪个选项不能插入到行1。
+1.
+2. public class Interesting{
+3. //do sth
+4. }",java源文件,import java.awt.*;,package mypackage;,class OtherClass{ },public class MyClass{ },D,0
+36,"设有下面两个赋值语句：
+a = Integer.parseInt('12');
+b = Integer.valueOf('12').intValue();
+下述说法正确的是",赋值语句,a是整数类型变量，b是整数类对象。,a是整数类对象，b是整数类型变量。,a和b都是整数类对象并且值相等。,a和b都是整数类型变量并且值相等。,A,0
+37,在编写Java Applet程序时，需在程序的开头写上()语句。,Applet,import java.awt.*;,import java.applet.Applet;,import java.io.*;,import java.awt.Graphics;,B,0
+38,下列哪一项不属于Swing的顶层容器？,Swing,JApplet,JTree,JDialog,JFrame,B,0
+39,为了使包ch4在当前程序中可见，可以使用的语句是,包,import ch4.;,package ch4.;,ch4 import;,ch4 package;,A,0
+40,请问所有的异常类皆继承哪一个类？,异常类,java.io.Exception,java.lang.Throwable,java.lang.Exception,java.lang.Error,B,0
+41,进行Java基本的GUI设计需要用到的包是,GUI,java.io,java.sql,java.awt,java.rmi,C,0
+42,当点击鼠标或者拖动鼠标时，触发的事件是下列的哪一个？,鼠标事件,KeyEvent,ActionEvent,ItemEvent,MouseEvent,D,0
+43,如下哪个是Java中的标识符,标识符,fieldname,super,3number,#number,A,0
+44,"设 x = 1 , y = 2 , z = 3，则表达式 y＋＝z－－/＋＋x 的值是：",运算符,3,3.5,4,5,A,0
+45,"下面的代码段执行之后count的值是什么
+```java
+int count = 1;
+for (int i = 1; i <= 5; i++) {
+    count += i;
+}
+System.out.println(count);
+```",循环语句,5,1,15,16,D,0
+46,为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为,方法头,static void method( ),public void method( ),final void method( ),abstract void method( ),A,0
+47,"下列程序段执行后的结果是
+```java
+String s = new String('abcdefg');
+for (int i=0; i<s.length(); i+=2){
+    System.out.print(s.charAt(i));
+}
+```",字符串,aceg,ACEG,abcdefg,abcd,A,0
+48,"下面程序段执行后b的值是
+```java
+Integer integ = new Integer(9);
+boolean b = integ instanceof Object;
+```",对象类型,9,TRUE,1,FALSE,B,0
+49,关于 for循环和 while循环的说法哪个正确？,循环语句,while循环先判断后执行，for循环先执行后判断。,while循环判断条件一般是程序结果，for循环的判断条件一般是非程序结果,两种循环任何时候都不可以替换,两种循环结构中都必须有循环体，循环体不能为空,B,0
+50,关于对象成员占用内存的说法哪个正确？,对象成员,同一个类的对象共用同一段内存,同一个类的对象使用不同的内存段，但静态成员共享相同的内存空间,对象的方法不占用内存,以上都不对,B,0
+51,关于继承的说法正确的是：,继承,子类将继承父类所有的属性和方法。,子类将继承父类的非私有属性和方法。,子类只继承父类public方法和属性,子类只继承父类的方法，而不继承属性,B,0
+52,覆盖与重载的关系是：,"覆盖,重载",覆盖只有发生在父类与子类之间，而重载可以发生在同一个类中,覆盖方法可以不同名，而重载方法必须同名,final修饰的方法可以被覆盖，但不能被重载,覆盖与重载是同一回事,A,0
+53,下面哪一个import命令可以为我们提供编写网络应用程序的类,网络应用程序,import java.sql.;,import java.util.;,import java.io.;,import java.net.;,D,0
+54,如果容器组件p的布局是BorderLayout，则在p的下边中添加一个按钮b，应该使用的语句是,容器,p.add(b);,"p.add(b,'North');","p.add(b,'South');","b.add(p,'North');",C,0
+55,Frame对象默认的布局管理器是,"Frame, 布局管理器",FlowLayout,BorderLayout,CardLayout,都不是,B,0
+56,如果需要从文件中读取数据，则可以在程序中创建哪一个类的对象,文件操作,FileInputStream,FileOutputStream,DataOutputStream,FileWriter,A,0
+57,"下面的程序创建了一个文件输出流对象，用来向文件test.txt中输出数据，假设程序当前目录下不存在文件test.txt，编译下面的程序Test.java后，将该程序运行3次，则文件test.txt 的内容是
+```java
+import java.io.*;
+public class Test {
+public static void main(String args[]) {
+try {
+String s=“ABCDE”;
+byte b[]=s.getBytes();
+FileOutputStream file=new FileOutputStream(“test.txt”,true);
+file.write(b);
+file.close();
+}
+catch(IOException e) {
+System.out.println(e.toString());
+}
+}
+}
+```
+",文件操作,ABCDE,ABCDE,ABCABC,ABCDE ABCDE ABCDE,D,0
+58,编译Java Application 源程序文件将产生相应的字节码文件，这些字节码文件的扩展名为,字节码,.java,.class,.html,.exe,B,0
+59,"设 x = 1 , y = 2 , z = 3，则表达式 y＋＝z－－/＋＋x 的值是",运算符,3,3. 5,4,5,A,0
+60,不允许作为类及类成员的访问控制符的是,访问控制,public,private,static,protected,C,0
+61,为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为,方法头,static void method(),public void method(),final void method(),abstract void method(),A,0
+62,关于选择结构下列哪个说法正确？,分支语句,if语句和 else语句必须成对出现,if语句可以没有else语句对应,switch结构中每个case语句中必须用break语句,switch结构中必须有default语句,B,0
+63,while循环和 do…while循环的区别是：,循环语句,没有区别，这两个结构任何情况下效果一样,while循环比 do…while循环执行效率高,while循环是先循环后判断，所以循环体至少被执行一次,do…while循环是先循环后判断，所以循环体至少被执行一次,D,0
+64,关于 for循环和 while循环的说法哪个正确？,循环语句,while循环先判断后执行，for循环先执行后判断。,while循环判断条件一般是程序结果，for循环的判断条件一般是非程序结果,两种循环任何时候都不可以替换,两种循环结构中都必须有循环体，循环体不能为空,B,0
+65,下列修饰符中与访问控制无关的是,"访问控制, 修饰符",private,public,protected,final,D,0
+66,void的含义：,void,方法没有返回值,方法体为空,没有意义,定义方法时必须使用,A,0
+67,return语句：,return,只能让方法返回数值,方法都必须含有,方法中可以有多句return,不能用来返回对象,C,0
+68,关于对象成员占用内存的说法哪个正确？,对象成员,同一个类的对象共用同一段内存,同一个类的对象使用不同的内存段，但静态成员共享相同的内存空间,对象的方法不占用内存,以上都不对,B,0
+69,下列说法哪个正确？,类与对象,不需要定义类，就能创建对象,对象中必须有属性和方法,属性可以是简单变量，也可以是一个对象,属性必须是简单变量,C,0
+70,下列说法哪个正确？,java源文件,一个程序可以包含多个源文件,一个源文件中只能有一个类,一个源文件中可以有多个公共类,一个源文件只能供一个程序使用,A,0
+71,关于方法main（）的说法哪个正确？,入口方法,方法main（）只能放在公共类中,main()的头定义可以根据情况任意更改,一个类中可以没有main()方法,所有对象的创建都必须放在main()方法中,C,0
+72,构造函数何时被调用？,构造函数,创建对象时,类定义时,使用对象的方法时,使用对象的属性时,A,0
+73,抽象方法：,抽象类和抽象方法,可以有方法体,可以出现在非抽象类中,是没有方法体的方法,抽象类中的方法都是抽象方法,C,0
+74,关于继承的说法正确的是：,继承,子类将继承父类所有的属性和方法。,子类将继承父类的非私有属性和方法。,子类只继承父类public方法和属性,子类只继承父类的方法，而不继承属性,B,0
+75,关于构造函数的说法哪个正确？,构造函数,一个类只能有一个构造函数,一个类可以有多个不同名的构造函数,构造函数与类同名,构造函数必须自己定义，不能使用父类的构造函数,C,0
+76,this和super：,super,都可以用在main()方法中,都是指一个内存地址,不能用在main()方法中,意义相同,C,0
+77,关于super的说法正确的是：,super,是指当前对象的内存地址,是指当前对象的父类对象的内存地址,是指当前对象的父类,可以用在main()方法中,B,0
+78,覆盖与重载的关系是,"覆盖,重载",覆盖只有发生在父类与子类之间，而重载可以发生在同一个类中,覆盖方法可以不同名，而重载方法必须同名,final修饰的方法可以被覆盖，但不能被重载,覆盖与重载是同一回事,A,0
+79,关于接口哪个正确？,接口与实现类,实现一个接口必须实现接口的所有方法,一个类只能实现一个接口,接口间不能有继承关系,接口和抽象类是同一回事,A,0
+80,异常包含下列哪些内容？,异常处理,程序执行过程中遇到的事先没有预料到的情况,程序中的语法错误,程序的编译错误,以上都是,A,0
+81,对于已经被定义过可能抛出异常的语句，在编程时：,异常处理,必须使用try／catch语句处理异常，或用throws将其抛出,如果程序错误，必须使用 try／catch语句处理异常,可以置之不理,只能使用try／catch语句处理,A,0
+82,字符流与字节流的区别在于,"字符流, 字节流",前者带有缓冲，后者没有,前者是块读写，后者是字节读写,二者没有区别，可以互换使用,每次读写的字节数不同,D,0
+84,ArrayList list = new ArrayList(20);语句中的 list 集合大小扩充了几次,,0,1,2,3,A,1
+85,如果去掉了 main 方法的 static 修饰符会怎样,static,程序无法翻译,程序能正常编译，运行时或抛出NoSuchMethodError异常?,程序能正常编译，正常运行?,程序能正常编译，正常运行一会会立刻退出,B,1
+86,启动 java 程序进程时，输入一下哪个参数可以实现年轻代的堆大小为 50M,"进程,堆",#NAME?,#NAME?,#NAME?,#NAME?,C,1
+87,下面哪些是 Thread 类的方法,Thread,start(),exit()?,getPriority(),get(),A,1
+88,"以下语句输出的结果是什么
+```java
+System.out.print(Integer.MAX_VALUE*2); 
+
+System.out.print(Integer.MIN_VALUE*2); 
+```",整数,"-2,-1","-1,-2","-2,0","-1,-1",C,1
+89,log4j 的优先级从高到低的排序为,log4j,error>warn>info>debug?,warn>info>debug>error?,warn >debug>error>info?,?error>warn>debug>info?,A,1
+90,下列哪些方法可以不使线程从运行状态进入到阻塞状态,线程,notify?,wait,sleep,yield?,A,1
+91,下列关于 Thread 类提供的线程控制的方法中，错误的一项是,Thread,在线程A中执行线程B的join()方法，则线程A等待直到B执行完成,线程A通过调用interrupt()方法来中断其阻塞状态,currentThread()方法返回当前线程的引用?,"若线程A调用方法isAlive（）返回为true,则说明 A正在执行中",A,1
+92,设 String s1 =”Topwalk”;String s2 =”Company”; 以 下 方 法 不可 以 得 到 字 符 串“TopwalkCompany” 有：,字符串,s2+s1,?s1.concat(s2),s1.append(s2),StringBuffer buf = new StringBuffer(s1);buf.append(s2),C,1
+93,String a = new String(“1”+”2”)最终创建了几个对象,字符串,1,2,3,4,B,1
+94,int 类型占用几个字节？,整数,2,4,8,16,C,0
+95,下列那一条语句可以实现快速的复制一张数据库表,数据库和SQL,select * into b from a where 1<>1;,creat table b as select * from a where 0=1,insert into b as select * from a where 1<>1;?,insert into b select * from a where 1<>1;?,C,1
+96,选出可以查询出所有的表和视图的方法,数据库和SQL,preparedStatement.getMetaData().getTables(***);?,connection.getMetaData().getTables(***);?,result.getMetaData().getTables(***);?,DiverManager.getMeta().getTables(***);?,B,1
+97,可以监控到数据库变化的机制有哪个,数据库和SQL,存储过程?,触发器,物化视图,都没有,A,1
+98,清空表所有数据的性能最优的语句是哪一个,数据库和SQL,delete from tsuer;?,truncate table tuser;,drop table tuser;?,delete tuser;?,B,1
+99,关于 Java 中国特殊符号的用法正确的是,中国特殊符号,"判断一个字符串str中是否含有“.”,可以根据str.indexOf(“.”)是否等于-1判断","判断一个字符串str是否含有“.”,可以根据str.indexOf(“\\.”)是否等于-1判断",根据“.”分隔字符串str的写法可以是str.split(“\\.”)?,都没有,A,1
+100,下面哪个是java关键字,关键字,run,low ,import,high,C,0
+101,如下那种情况下，Oracle 不会使用 Full Table Scean,数据库和SQL,缺乏索引，特别是在列上使用了函数，如果要利用索引，则需要使用函数索引,当访问的数据占整个表中的大部分数据时,如果时一个表的high water mark 数据块数少于初始化参数DB_FILE_MULTIBLOCK_READ_COUNT?,本次查询可以用到该张表的一个引用，但是该表具有多个索引包含用于过滤的字段,D,1
+102,"有如下代码段：
+```java
+public  static void booleanTest() {
+        int a = 1, b =1;
+        if (a == b || b<0)
+            a++;
+        if (a <= 2 &&(!(b<0)))
+            b=b<<1;
+        System.out.println(a + "","" + b);
+}
+```
+?        则运行结果为：","算术运算符,关系运算符","2,1","2,2","2,3","1,2",B,0
+103,?如下赋值语句中，有语法错误的是?,基本类型,float f1 = 1.2;,float f1 = 1.2f;,float f1 = 1;,float f1 = 0xAE;,A,0
+104,"有如下类定义：
+```java
+public class Rectangle {
+?
+public int width = 3;
+?
+public int height = 4;
+?
+public int area() {
+?
+        return width * height;
+?
+}
+?
+}
+```
+则如下代码输出结果为：
+```java
+Rectangle rectangle;
+?
+rectangle.height = 5;
+?
+System.out.println(rectangle.area());
+```",类,15,有编译错误，程序不能运行,12,0,B,0
+105,"执行如下代码片段后，i和n的值分别为：
+?```java
+int i = 10;
+?
+int n =( i++) % 5;
+```",运算符,"11, 1","11, 0","10, 1","10, 0",B,0
+106,"?执行如下代码片段后，num的值为：
+```java
+?int num = 5;
+?num = (num % 2) == 0 ? num – 1 : num + 1;
+```",三元运算符,1,4,5,6,D,0
+107,"有如下代码段：
+```java
+?if (num >= 0)
+?    if (num == 0)
+?
+?        System.out.println(""first string"");
+?
+?else 
+?
+?    System.out.println(""second string"");
+?
+?System.out.println(""third string"");
+```
+?
+?若num为3，则输出结果为：",选择语句,third string,"second string
+third string","first string
+third string","first string
+second string
+third string",B,0
+108,?下列变量名称中，不属于有效Java变量命名的是？,变量,$num,_int,6nums,Jiayou,C,0
+109,对于Java1.7及之后版本，如下不能用于switch的类型是：,选择语句,String,int,char,double,D,0
+110,如下对Java基本类型的描述，错误的是？,基本类型,char占1个字节,int 占4个字节,short 占2个字节,double占8个字节,A,0
+111,?如下循环结构中，输出结果与其它三组不一致的一组是,,"```java
+for (int i = 0; i < 10; i++)
+System.out.println(i);
+```","```java
+int i = 0;
+while (i < 10)
+  System.out.println(i++);
+```","```java
+int i = 0;
+for (;i < 10;)
+  System.out.println(i++);
+```","```java
+int i = 0;
+while (i++ < 10)
+  System.out.println(i);
+```",D,0
+112,"?swap方法定义如下：
+?```java
+?public static void swap(int num1, int num2) {
+?
+?        int temp = num1;
+?
+?        num1 = num2;
+?
+?        num2 = temp;
+?
+? }
+?```
+?执行如下代码后，
+?```java
+?       int num1 = 10;
+?
+?       int num2 = 5;
+?
+?       int num3 = 20;
+?
+?       swap(num1, num2);
+?
+?       swap(num2, num3);
+?```
+? num1, num2, num3的值分别为：",形式参数,"10, 5, 20","5, 20, 10","5, 10, 20","20, 5, 10",A,0
+113,"假设有boolean变量flag1,flag2,则如下表达式中哪个不能代表异或逻辑？(异或逻辑：如果a、b两个值不相同，则异或结果为true。如果a、b两个值相同，异或结果为false。)",运算符,flag1 != flag2,(flag1 == true && flag2 == false) || (flag1 == false && flag2 == true),!flag1 == flag2,(flag1 == true && flag2 == true) || (flag1 == false && flag2 == false),D,0
+114,如下关于Java类的说法，错误的是？,类,对象是类的实例化,可以通过对象访问类变量,java文件中只能包含一个类的定义,同一类的不同对象有着相同的类变量,C,0
+115,如下赋值语句，有编译错误的是？,赋值语句,byte b = -127;,int i = (byte)512;,byte b = 129;,byte b = -0;,C,0
+116,下列关于main方法的描述中，错误的是？,主方法,main方法是Java程序的入口,main方法格式为public static void main(String[] args) { //Your code here },B选项中所描述格式中形参args不能更改，如果将args改为arguments则不能编译通过,main方法可以被重载,C,0
+117,Java有“一次编译，到处运行”的说法，此种说法中编译的结果是：,编译运行,机器码,符号表,字节码,中间代码,C,0
+118,下列不属于Java基本数据类型的是？,数据类型,short,float,Double,int,C,0
+119,如下关于JDK和JRE的说法，错误的是？,"JDK, JRE",JDK全称Java Development Kit，意即Java开发工具包,JRE全程Java Runtime Environment，意即Java运行环境,JRE中包含了JDK,若只需要运行编译好的Java程序，则只有JRE就可以,C,0
+120,"在Java中,下面对于构造函数的描述正确的是",构造函数,类必须显式定义构造函数,构造函数的返回类型是void,"构造函数和类有相同的名称,并且不能带任何形参",一个类可以定义多个构造函数,D,0
+121,"Assume i and j are member variables with double type in class X. In the following codes, which one is NOT RIGHT constructor?",构造函数,double X(double k ){ i=k; return i; },"X(double m, double n ){ i=m; j=n; }",X( ){i=6;j=8; },X(double k ){ i=k; },A,0
+122,"Given:
+```java
+?class CardBoard {
+?
+?  Short story = 5;
+?
+?  CardBoard go(CardBoard cb) {
+?
+?    cb = null;
+?
+?    return cb;
+?
+?  }
+?
+?  public static void main(String[] args) {
+?
+?    CardBoard c1 = new CardBoard();
+?
+?    CardBoard c2 = new CardBoard();
+?
+?    CardBoard c3 = c1.go(c2);
+?
+?    c1 = null;
+?
+?    // do Stuff
+?
+?  } 
+?
+?}
+```
+When // doStuff is reached, how many objects of CardBoard are null?",编译运行,0,1,2,Compilation fails.,C,0
+123,"Given the uncompleted code of a class:
+```java
+class Person {
+?
+?    String name, department;
+?
+?    int age;
+?
+?    public Person(String n){ name = n; }
+?
+?    public Person(String n, int a){ name = n; age = a; }
+?
+?    public Person(String n, String d, int a) {
+?
+?        // doing the same as two arguments version of constructor 
+?
+?        // including assignment name=n,age=a
+?
+?        department = d;
+?
+?   }
+?
+?}
+```
+Which expression can be added at the ""doing the same as..."" part of the constructor?",构造函数,"Person(n,a);","this(Person(n,a));","this(n,a);","this(name,age);",C,0
+124,"现有 
+```java
+ public class Parent{
+??        public void change (int x){
+?
+?        }
+?
+?    }
+?
+?    public class Child extends Parent{
+?
+?    ／／覆盖父类change方法
+?
+?   }
+```
+下列哪个声明是正确的覆盖了父类的change方法？","继承, 覆盖","public void change(int x, int y){}",public void change (int x){},public void change (String s){},protected void change (int x){},B,0
+125,"```java
+class Ca{
+    int num = 1;
+    Ca(int num){
+        this.num = num;
+        System.out.print(this.num);
+    }
+}
+
+class Cb extends Ca{
+?    int num = 2;
+    Cb(int num) {
+        this.num = num;
+        System.out.print(num);
+?     }
+
+    public static void main(String[] args) {
+        Ca a = new Cb(5);
+    }
+} 
+```
+运行代码，程序输出结果为：",单例模式,51,15,52,编译报错,D,0
+126,下面关于继承的叙述正确的是（）,final,Java中一个类可继承于多个类,Java中一个类只能实现一个接口,Java类中只允许单一继承,Java中一个类不能同时继承一个类和实现一个接口,C,0
+127,"给定下列程序，请选出正确结果。 
+```java
+?class Cat  {
+?    Cat (int c)  {
+?        System.out.print (""cat""+c+"" "");  
+?    }
+? }
+?class SubCat extends Cat  {
+?    SubCat (int c){
+?        super (5); 
+?        System.out.print (""cable"");
+?    }
+?    SubCat()  {  
+?        this (4)；  
+?    }
+?    public static void main (String  []  args)  {
+?        SubCat s= new SubCat();
+?    }
+?}
+```",static和final测验,cable,cable cat5,cat5 cable,cat5,C,0
+128,"下列程序的输出是（）。 
+```java
+class Other{  
+?
+?   public Other () { 
+?
+?     System.out.print(""Other!""); 
+?
+?}  
+?
+?}  
+?
+?public class Driver1 extends Other {  
+?
+?   public static void main( String[] args ) {  
+?
+?      new Driver1();  
+?
+?      new Other ();  
+?
+?  }  
+?
+?} 
+```",常量设计和常量池,Other!Other!Other!,Other!Other!,Other!,编译出错,B,0
+129,"请选出以下程序的输出结果 
+```java
+?class A {
+?
+? public void func1() {
+?
+? System.out.println(""A func1 is calling"");
+?
+? }
+?
+? public void func2() {
+?
+? func1();
+?
+? }
+?
+?}
+?
+?
+?
+?class B extends A {
+?
+? public void func1() {
+?
+? System.out.println(""B func1 is calling"");
+?
+? }
+?
+? public void func3() {
+?
+? System.out.println(""B func3 is calling"");
+?
+? }
+?
+?}
+?
+?
+?
+?class C {
+?
+? public static void main(String[] args) {
+?
+?            A a = new B();
+?
+?            a.func1();
+?
+?            a.func2();
+?
+?            a.func3();
+?
+? } 
+?
+?}
+```",不可变对象和字符串,编译错误,A func1 is calling A func1 is calling B func3 is calling,A func1 is calling B func3 is calling,B func1 is calling B func3 is calling,A,0
+130,"请选出正确答案
+```java
+class Parent {
+?
+?     String one, two;
+?
+?     public Parent(String a, String b){
+?
+?        one = a;
+?
+?        two = b;
+?
+?     }
+?
+?    public void print(){ System.out.println(one); }
+?
+?}
+?
+?public class Child extends Parent {
+?
+?      public Child(String a, String b){
+?
+?        super(a,b);
+?
+?      }
+?
+?      public void print(){ 
+?
+?           System.out.println(one + "" to "" + two);
+?
+?      }
+?
+?      public static void main(String arg[]){
+?
+?           Parent p = new Parent(""south"", ""north"");           
+?
+?           Parent t = new Child(""east"", ""west"");
+?
+?           p.print();
+?
+?           t.print();
+?
+?      }
+?
+?}
+```",继承, \"north\"); Parent t = new Child(\"east\", \"west\"); p.print(); t.print(); } }",Cause error during compilation.,south to north east,D,0
+132,在 Java 中，package 关键字用于什么目的？,package和import,导入其他类,定义一个类的访问权限,将类组织到命名空间中,定义一个类的继承关系,C,0
+133,使用哪一个命令可以将 Java 项目打包成一个 JAR 文件？,jar文件导出和导入,javapack,jar cf,javac -jar,jar pack,B,0
+135,下列哪个选项正确描述了 Java 中 private 访问修饰符的作用？,Java访问权限,private 访问修饰符允许类中的成员变量和方法被同一个包中的其他类访问。,private 访问修饰符允许类中的成员变量和方法被同一个类中的其他成员变量和方法访问。,private 访问修饰符允许类中的成员变量和方法被任何类访问。,private 访问修饰符不允许类中的成员变量和方法被同一个类中的其他成员变量和方法访问。,B,0
+137,在 Java 中，以下哪种方法可以将字符串 "123" 转换为整数类型 int？,数字相关类,Integer.parse("123"),Integer.valueOf("123"),Integer.parseInt("123"),Integer.convert("123"),C,0
+138,在 Java 中，以下哪个类是用于创建和操作不可变字符串的类？,字符串相关类,StringBuilder,StringBuffer,String,CharSequence,C,0
+139,以下哪一个类是 Java 8 引入的用于处理日期和时间的新 API 的类？,时间相关类,Date,Calendar,LocalDateTime,SimpleDateFormat,C,0
+140,在 Java 中，以下哪个类用于格式化和解析日期？,格式化相关类,SimpleDateFormat,DateTimeFormatter,DateFormat,以上皆是,D,0
+142,"?给出如下代码段:
+?try?{?int?x?=?Integer.parseInt(""two"");?}
+?下列哪个可以作为catch的异常？",Java异常分类,ClassCastException,IllegalStateException,NumberFormatException,ExceptionInInitializerError,C,0
+143,"?class?Plane?{
+?    static?String?s?=?""-"";
+?    public?static?void?main(String[]?args){
+?        new?Plane().s1();
+?        System.out.println(s);
+?    }
+?    void?s1()?{
+?        try?{s2();}catch?(Exception?e){
+?        ?s?+=?""c"";?
+?        }
+?    }
+?    void?s2()?throws?Exception?{
+?        s3();?
+?        s?+=?""2"";
+?        s3();
+?        s?+=?""2b"";
+?    }
+?    void?s3()?throws?Exception{
+?          throw?new?Exception();
+}  
+?} 结果是什么?",Java异常处理,-,-c,#VALUE!,-2c,B,0
+144,"?下列程序的执行，说法正确的是（ ）
+class MultiCatch
+?{
+?     public static void main(String args[])
+?    {
+?        try
+?        {
+?              int a=args.length;
+?              int b=42/a;
+?              int c[]={1};
+?              c[42]=99;  //10行
+?              System.out.println(“b=”+b);
+?            }
+?        catch(ArithmeticException e)
+?        {
+?                System.out.println(“除0异常：”+e);  //15行
+?        }
+?        catch(ArrayIndexOutOfBoundsException e)
+?        {
+?                System.out.println(“数组超越边界异常：”+e); //19行
+?            }
+?         }    
+?      }",Java异常处理,程序将输出第15行的异常信息,程序第10行出错,程序将输出“b=42”,程序将输出第19行的异常信息,A,0
+145,"?下面是一些异常类的层次关系：
+?java.lang.Exception
+?java.lang.RuntimeException
+?java.lang.IndexOutOfBoundsException
+?java.lang.ArrayIndexOutOfBoundsException
+?java.lang.StringIndexOutOfBoundsException
+?假设有一个方法X，能够抛出两个异常，Array Index和String Index异常，假定方法X中没有try-catch语句处理这些异常，下面哪个答案是正确的？（   ）",Java异常分类,方法X 应该声明抛弃ArrayIndexOutOfBoundsException和StringIndexOutOfBounds-Exception。,如果调用X的方法捕获IndexOutOfBoundsException，则ArrayIndexOutOfBoundsException和StringIndexOutOfBoundsException都可以被捕获。,如果方法X声明抛弃IndexOutOfBoundsException，则调用X的方法必须用try-catch语句捕获。,方法X不能声明抛弃异常。,A,0
+146,?请问所有的异常(Exception)和错误(Error)类皆继承哪一个类？（    ）,Java异常分类,java.lang.Throwable,java.lang.Exception,java.lang.Error,java.io.Exception,A,0
+147,"给定: 
+// some code here 
+ try { 
+// some code here
+// some code here 
+} catch (SomeException se) { 
+// some code here ?
+// some code here
+} finally { 
+ // some code here 
+ // some code here
+ } 
+?如下哪些情况出现时第39行中代码不会被执行?",Java异常处理,第31行代码抛出异常,第34行代码抛出异常,第37行代码抛出异常,第40行代码抛出异常,A,0
+148,在 Java 中，如何定义一个自定义异常类 MyException？,自定义异常,"public class MyException extends Exception {
+    public MyException(String message) {
+        super(message);
+    }
+}
+","public class MyException {
+    public MyException(String message) {
+        super(message);
+    }
+}
+","public class MyException extends Error {
+    public MyException(String message) {
+        super(message);
+    }
+}
+","public class MyException extends Throwable {
+    public MyException(String message) {
+        super(message);
+    }
+}
+",A,0
+150,在 Java 中，如何声明一个包含 10 个整数的数组？,数组,int[] arr = new int[10];,int arr = new int[10];,int[10] arr = new int[];,int arr[] = new int[];,A,0
+151,"以下代码中，result 数组的内容是什么？
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {4, 5, 6};
+int[] result = new int[arr1.length + arr2.length];
+System.arraycopy(arr1, 0, result, 0, arr1.length);
+System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
+",数组,"[1, 2, 3, 4, 5, 6]","[4, 5, 6, 1, 2, 3]","[1, 2, 3, 0, 0, 0]","[4, 5, 6, 0, 0, 0]",A,0
+152,以下代码中，如何初始化一个二维数组 matrix？,数组,int[][] matrix = new int[3][3];,"int[][] matrix = new int[3, 3];",int matrix[3][3] = new int[][];,"int matrix[][] = new int[3, 3];",A,0
+153,以下哪个接口是 Java 集合框架的根接口？,JCF,List,Set,Collection,Map,C,0
+154,如何向 ArrayList 添加一个元素？,列表List,list.add(element);,list.insert(element);,list.put(element);,list.append(element);,A,0
+155,以下哪个集合类保证元素的自然顺序？,集合Set,HashSet,LinkedHashSet,TreeSet,ArrayList,C,0
+156,"以下代码中，map 的内容是什么？
+Map<String, Integer> map = new HashMap<>();
+map.put(""one"", 1);
+map.put(""two"", 2);
+map.put(""one"", 3);
+",映射Map,"{""one""=1, ""two""=2}","{""one""=1, ""two""=3}","{""one""=3, ""two""=2}","{""one""=3, ""two""=3}",C,0
+157,如何使用 Collections 工具类将两个列表进行合并？,工具类,"Collections.combine(list1, list2);","Collections.merge(list1, list2);","Collections.addAll(list1, list2);","Collections.join(list1, list2);",C,0
+159,如何在 Java 中读取文件的长度（以字节为单位）？,文件系统及Java文件基本操作,file.size();,file.length();,file.getSize();,file.getLength();,B,0
+160,在 Java 中，java.io 包中哪个类用于读取字符文件？,Java io 包,FileReader,FileWriter,FileInputStream,FileOutputStream,A,0
+161,在 Java 中，哪个类用于读取字符文件？,文本文件读写,FileInputStream,FileReader,BufferedOutputStream,DataInputStream,B,0
+162,在 Java 中，哪个类用于写入二进制文件？,二进制文件读写,FileWriter,FileOutputStream,BufferedWriter,DataInputStream,B,0
+163,在 Java 中，哪个类用于写入 ZIP 文件？,Zip文件读写,ZipReader,ZipWriter,ZipOutputStream,ZipInputStream,C,0
+164,Maven项目中，pom.xml文件的作用是什么？,Maven,管理项目的依赖、插件和构建信息,定义Java类路径,配置JVM选项,记录项目的测试结果,A,0
+165,在Maven项目中，哪个命令用于编译项目代码？,Maven,mvn clean,mvn compile,mvn package,mvn test,B,0
+166,以下哪个Maven命令用于清理项目目录，删除生成的所有文件？,Maven,mvn compile,mvn clean,mvn package,mvn install,B,0
+168,使用JUnit进行单元测试时，如何检查两个对象是否相等？,JUnit、单元测试,assertTrue(a == b),"assertEquals(a, b)","assertThat(a, b)","assertSame(a, b)",B,1
+169,JUnit 是一个用于 Java 编程语言的什么工具？,JUnit、单元测试,集成开发环境,编译器,单元测试框架,版本控制系统,C,0
+170,在 JUnit 4 中，哪个注解用于标记一个方法为测试方法？,JUnit、单元测试,@Test,@RunWith,@Before,@After,A,0
+171,在 JUnit 4 中，哪个注解用于在每个测试方法之前运行的代码？,JUnit、单元测试,@Before,@After,@BeforeClass,@AfterClass,A,1
+172,以下哪种方法可以断言两个对象是否相等？,JUnit、单元测试,assertEqual(),assertEquals(),assertSame(),assertTrue(),B,0
+173,在 JUnit 5 中，哪个注解用于替代 JUnit 4 中的 @Before 和 @After 注解？,JUnit、单元测试,@Setup 和 @TearDown,@BeforeTest 和 @AfterTest,@BeforeEach 和 @AfterEach,@Init 和 @CleanUp,C,1
+174,在 JUnit 4 中，如何预期某个测试方法会抛出异常？,JUnit、单元测试,@Test(throws=Exception.class),@Test(expected=Exception.class),@Test(expect=Exception.class),@Test(exception=Exception.class),B,1
+175,JUnit 5 中的注解 @DisplayName 用于什么？,JUnit、单元测试,定义测试类的名字,定义测试方法的名字,定义测试结果的名字,定义在测试报告中显示的测试名称,D,1
+176,JUnit 5 中，@ParameterizedTest 注解用于什么？,JUnit、单元测试,运行参数化的测试,在每个测试之前运行代码,运行并发测试,定义静态测试,A,2
+177,如何在 JUnit 5 中禁用测试？,JUnit、单元测试,@DisabledTest,@Ignore,@Disabled,@IgnoreTest,C,1
+178,在 JUnit 5 中，哪个类用于动态测试？,JUnit、单元测试,DynamicTests,TestFactory,TestGenerator,DynamicTest,D,2
+179,Java中，String.getBytes(Charset charset)方法的作用是什么？,Java字符编码,将字符串编码为指定字符集的字节数组,将字节数组解码为字符串,将字符串转换为大写,比较两个字符串是否相等,A,1
+180,Java 中的默认字符编码是什么？,Java字符编码,UTF-8,ISO-8859-1,US-ASCII,UTF-16,A,1
+181,以下哪个字符编码是单字节编码？,Java字符编码,UTF-8,ISO-8859-1,UTF-16,GBK,B,1
+182,如何在 Java 中将字符串转换为字节数组？,Java字符编码,str.getBytes(),str.toBytes(),str.getChars(),str.toChars(),A,0
+183,在 Java 中，如何指定文件读取时的字符编码？,Java字符编码,new FileReader(file),new InputStreamReader(file),"new FileReader(file, encoding)","new InputStreamReader(file, encoding)",D,2
+184,哪种编码不适用于国际化应用程序？,Java字符编码,UTF-8,ISO-8859-1,UTF-16,UTF-32,B,1
+185,哪个字符编码支持所有 Unicode 字符？,Java字符编码,UTF-8,ISO-8859-1,ASCII,UTF-32,D,1
+186,在 Java 中，如何将字节数组转换为字符串？,Java字符编码,new String(byteArray),String.valueOf(byteArray),String.parse(byteArray),String.decode(byteArray),A,0
+187,UTF-8 编码中，最大字符长度是多少？,Java字符编码,1 字节,2 字节,3 字节,4 字节,D,1
+188,在 Java 中，字符编码问题通常出现在什么情况下？,Java字符编码,编译代码时,运行时类型转换时,读取和写入文件时,网络通信时,C,2
+189,以下哪个Java类用于在字符串中进行复杂的模式匹配和替换？,Java高级字符串处理,StringBuilder,StringBuffer,Pattern,Arrays,C,1
+190,在 Java 中，哪个类用于模式匹配操作？,Java高级字符串处理,String,Pattern,Matcher,Scanner,B,1
+191,如何在 Java 中将字符串拆分为子字符串数组？,Java高级字符串处理,split(),divide(),separate(),partition(),A,0
+192,在 Java 中，如何检查字符串是否匹配正则表达式？,Java高级字符串处理,matches(),find(),equal(),contains(),A,1
+193,如何在 Java 中创建不可变字符串？,Java高级字符串处理,new ImmutableString(),使用 final 关键字,使用 String 类,使用 StringBuffer 类,C,0
+194,在 Java 中，StringBuilder 和 StringBuffer 的主要区别是什么？,Java高级字符串处理,StringBuilder 是线程安全的,StringBuffer 是线程安全的,StringBuilder 是可变的,StringBuffer 是不可变的,B,2
+195,在 Java 中，如何将字符串中的所有字母转换为大写？,Java高级字符串处理,toUpperCase(),toUpper(),upper(),capitalize(),A,0
+196,在 Java 中，如何从字符串中删除前导和尾随空白字符？,Java高级字符串处理,trim(),strip(),removeSpaces(),deleteWhitespace(),A,0
+197,在 Java 中，如何比较两个字符串的内容？,Java高级字符串处理,==,equals(),compare(),isEqual(),B,1
+198,如何在 Java 中查找字符串中子字符串的索引？,Java高级字符串处理,find(),indexOf(),search(),locate(),B,1
+199,在 Java 中，如何将字符串中的所有出现的特定字符替换为另一个字符？,Java高级字符串处理,replace(),substitute(),swap(),change(),A,1
+201,XML的全称是什么？,XML简介,Extended Markup Language,Example Markup Language,Extensible Markup Language,Extra Markup Language,C,0
+202,DOM解析XML文档时，以下哪个特性是正确的？,XML解析,逐行解析，速度较快,消耗内存较少,将整个XML文档加载到内存中,只适用于小型XML文档,C,1
+203,SAX解析XML文档时的主要特点是什么？,XML解析,将整个文档加载到内存中,基于事件驱动，逐行解析,适合复杂的XML文档处理,只能解析简单的XML文档,B,1
+204,以下哪种解析方式允许在XML解析过程中进行读写操作？,XML解析,DOM,JSON,SAX,StAX,D,1
+205,Java中，哪个类通常用于处理图形图像文件的读写？,图形图像解析,ImageReader,ImageParser,ImageIO,ImageHandler,C,1
+206,在 Java 中，哪个库常用于图像处理？,图形图像解析,OpenCV,ImageJ,BoofCV,以上全部,D,1
+207,使用 Java AWT 库时，哪个类用于表示图像？,图形图像解析,Image,BufferedImage,Graphics,Raster,B,1
+208,在 Java 中，如何读取图像文件？,图形图像解析,ImageIO.read(),Image.read(),Graphics.read(),File.read(),A,0
+209,使用 OpenCV 库时，如何将图像转换为灰度图像？,图形图像解析,"Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY)","Core.cvtColor(src, dst, Core.COLOR_BGR2GRAY)","Image.cvtColor(src, dst, Image.COLOR_BGR2GRAY)","Gray.convert(src, dst)",A,2
+210,在 Java 中，如何将图像保存为文件？,图形图像解析,ImageIO.write(),Image.write(),Graphics.write(),File.write(),A,0
+211,在 BoofCV 库中，如何对图像进行二值化处理？,图形图像解析,BinaryOps.threshold(),ImageBinaryOps.threshold(),ThresholdImageOps.threshold(),BinaryImageOps.threshold(),C,2
+212,在 JavaFX 中，哪个类用于显示图像？,图形图像解析,ImageView,ImagePanel,GraphicsView,PictureBox,A,0
+213,在 Java 中，如何获取图像的宽度和高度？,图形图像解析,image.getWidth() 和 image.getHeight(),image.getSize() 和 image.getDimensions(),image.getAttributes() 和 image.getMeasures(),image.getX() 和 image.getY(),A,0
+214,在 OpenCV 中，如何检测图像中的边缘？,图形图像解析,Imgproc.Canny(),Core.Canny(),Image.Canny(),EdgeDetector.Canny(),A,2
+215,在 Java 中，如何将图像旋转90度？,图形图像解析,AffineTransform.rotate(Math.PI / 2),Graphics.rotate(Math.PI / 2),Image.rotate(Math.PI / 2),Transform.rotate(Math.PI / 2),A,1
+216,以下哪个库常用于在Java中解析和生成条形码和二维码？,条形码和二维码解析,Zxing,Gson,JFreeChart,OpenCV,A,1
+217,使用 ZXing 库时，哪个类用于解析二维码？,条形码和二维码解析,QRCodeReader,QRCodeParser,QRCodeScanner,QRCodeDecoder,A,1
+218,在 ZXing 库中，如何从图像中读取条形码？,条形码和二维码解析,BarcodeReader.read(),ImageReader.read(),BinaryBitmap.getBarcode(),BarcodeReader.decode(),D,2
+219,如何在 Java 中生成二维码（使用 ZXing）？,条形码和二维码解析,QRCodeWriter.write(),QRCodeGenerator.generate(),QRCodeWriter.encode(),QRCodeGenerator.create(),C,2
+220,在 Barcode4J 库中，如何创建条形码图像？,条形码和二维码解析,BarcodeGenerator.generate(),BarcodeImageWriter.write(),BarcodeEncoder.encode(),BarcodeClass.create(),B,2
+221,使用 ZXing 库时，如何将图像转换为 BinaryBitmap 对象？,条形码和二维码解析,new BinaryBitmap(new HybridBinarizer(new BufferedImageLuminanceSource(image))),BinaryBitmap.create(image),BinaryBitmap.fromImage(image),BinaryBitmap.getInstance(image),A,2
+222,在 ZXing 中，如何指定二维码的纠错级别？,条形码和二维码解析,QRCodeWriter.setErrorCorrectionLevel(),QRCodeWriter.setCorrectionLevel(),QRCodeWriter.setECLevel(),QRCodeWriter.setErrorLevel(),A,1
+223,在 Barcode4J 中，如何设置条形码的高度？,条形码和二维码解析,BarcodeDimension.setHeight(),BarcodeConfig.setHeight(),BarcodeGenerator.setHeight(),BarcodeClass.setHeight(),C,1
+224,使用 ZXing 库时，如何检测并解码条形码？,条形码和二维码解析,BarcodeScanner.scan(),MultiFormatReader.decode(),BarcodeReader.detect(),BarcodeDecoder.read(),B,2
+225,在 ZXing 中，如何将解码结果转换为字符串？,条形码和二维码解析,Result.toString(),Result.getText(),Result.decode(),Result.readString(),B,0
+226,在Java中，以下哪个库常用于解析和生成Docx文件？,Docx解析,Apache POI,iText,Gson,JDOM,A,1
+227,使用 Apache POI 库时，哪个类用于表示 DOCX 文档？,Docx解析,XWPFDocument,HWPFDocument,Document,WordDocument,A,1
+228,在 Apache POI 中，如何读取 DOCX 文件？,Docx解析,XWPFDocument doc = new XWPFDocument(new FileInputStream(file)),XWPFDocument doc = XWPFDocument.open(file),XWPFDocument doc = DocumentReader.read(file),XWPFDocument doc = WordDocument.read(file),A,2
+229,如何使用 Apache POI 库在 DOCX 文档中添加段落？,Docx解析,doc.createParagraph(),doc.addParagraph(),doc.insertParagraph(),doc.appendParagraph(),A,1
+230,在 Docx4j 库中，如何将 DOCX 文件转换为 PDF？,Docx解析,Docx4j.toPDF(),Docx4j.convertToPDF(),Docx4j.pdfConverter(),Docx4jExporter.toPDF(),B,2
+231,使用 Aspose.Words 库时，如何在 DOCX 文档中插入图像？,Docx解析,DocumentBuilder.insertImage(),Document.insertImage(),Docx4j.insertImage(),XWPFDocument.insertImage(),A,2
+232,在 Apache POI 中，如何获取文档中的所有段落？,Docx解析,doc.getParagraphs(),doc.readParagraphs(),doc.getAllParagraphs(),doc.extractParagraphs(),A,1
+233,在 Docx4j 库中，如何从 DOCX 文档中提取文本？,Docx解析,Docx4j.extractText(),Docx4j.getText(),Docx4j.readText(),Docx4j.getAllText(),A,1
+234,使用 Aspose.Words 库时，如何将 DOCX 文档保存为 HTML 文件？,Docx解析,doc.saveAsHTML(),doc.toHTML(),doc.saveToHTML(),"doc.save(outputPath, SaveFormat.HTML)",D,2
+235,在 Apache POI 中，如何设置段落的对齐方式？,Docx解析,paragraph.setAlignment(),paragraph.setAlign(),paragraph.align(),paragraph.setParagraphAlignment(),A,1
+236,Java中，以下哪个库最常用来处理Excel文件？,表格文件解析,Apache POI,JExcelAPI,Both A and B,None of the above,C,1
+237,使用 Apache POI 库时，哪个类用于表示 Excel 工作簿？,表格文件解析,XSSFWorkbook,HSSFWorkbook,Workbook,ExcelWorkbook,A,1
+238,在 Apache POI 中，如何读取 Excel 文件？,表格文件解析,XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file)),XSSFWorkbook workbook = XSSFWorkbook.open(file),XSSFWorkbook workbook = WorkbookReader.read(file),XSSFWorkbook workbook = ExcelWorkbook.read(file),A,2
+239,如何使用 Apache POI 库在 Excel 工作表中添加新行？,表格文件解析,sheet.createRow(),sheet.addRow(),sheet.insertRow(),sheet.appendRow(),A,1
+240,在 JExcelAPI 库中，如何读取 Excel 文件？,表格文件解析,Workbook workbook = Workbook.getWorkbook(file),Workbook workbook = Workbook.read(file),Workbook workbook = Workbook.open(file),Workbook workbook = Workbook.load(file),A,2
+241,使用 Aspose.Cells 库时，如何在 Excel 工作表中插入图片？,表格文件解析,worksheet.getPictures().add(),worksheet.insertImage(),worksheet.addImage(),worksheet.createPicture(),A,2
+242,在 Apache POI 中，如何获取工作表中的所有行？,表格文件解析,sheet.getRows(),sheet.readRows(),sheet.getAllRows(),sheet.extractRows(),A,1
+243,在 JExcelAPI 库中，如何从 Excel 文件中提取文本？,表格文件解析,Cell.getContents(),Cell.readContents(),Cell.getText(),Cell.readText(),A,1
+244,使用 Aspose.Cells 库时，如何将 Excel 文件保存为 PDF 文件？,表格文件解析,workbook.saveAsPDF(),workbook.toPDF(),workbook.saveToPDF(),"workbook.save(outputPath, SaveFormat.PDF)",D,2
+245,在 Apache POI 中，如何设置单元格的格式？,表格文件解析,cell.setCellStyle(),cell.setFormat(),cell.applyStyle(),cell.formatCell(),A,1
+246,在Java中，以下哪个库常用于处理PDF文件的创建和解析？,PDF解析,Apache POI,iText,PDFBox,Both B and C,D,1
+247,使用 Apache PDFBox 库时，哪个类用于表示 PDF 文档？,PDF解析,PDDocument,PDFDocument,Document,PDFFile,A,1
+248,在 Apache PDFBox 中，如何读取 PDF 文件？,PDF解析,PDDocument doc = PDDocument.load(file),PDDocument doc = PDDocument.open(file),PDDocument doc = DocumentReader.read(file),PDDocument doc = PDFDocument.read(file),A,2
+249,如何使用 Apache PDFBox 库在 PDF 文档中添加文本？,PDF解析,doc.addText(),doc.createText(),doc.insertText(),doc.addPage().drawString(),D,2
+250,在 iText 库中，如何将 PDF 文件转换为图像？,PDF解析,PdfToImage.convert(),PdfConverter.convertToImage(),PdfImageConverter.convert(),PdfToImage.create(),B,2
+251,使用 iText 库时，如何在 PDF 文档中插入图片？,PDF解析,Document.add(Image.getInstance(imagePath)),Document.insertImage(imagePath),Document.addImage(imagePath),Document.createImage(imagePath),A,2
+252,在 Apache PDFBox 中，如何获取 PDF 文档中的所有页？,PDF解析,doc.getPages(),doc.readPages(),doc.getAllPages(),doc.extractPages(),A,1
+253,在 PDFClown 库中，如何从 PDF 文件中提取文本？,PDF解析,PDFTextExtractor.extract(),PDFTextReader.getText(),TextExtractor.extract(),PDFClown.getText(),C,1
+254,使用 iText 库时，如何将 PDF 文件保存为 HTML 文件？,PDF解析,doc.saveAsHTML(),doc.toHTML(),HtmlConverter.convertToHtml(doc),doc.saveToHTML(),C,2
+255,在 Apache PDFBox 中，如何设置文本的字体？,PDF解析,contentStream.setFont(),contentStream.setFontStyle(),contentStream.applyFont(),contentStream.setTextFont(),A,1
+256,在 Java 中，哪个库常用于解析 JSON 数据？,JSON解析,Gson,Jackson,Json-simple,以上全部,D,1
+257,使用 Gson 库时，哪个类用于将 JSON 字符串转换为 Java 对象？,JSON解析,GsonParser,JsonParser,JsonConverter,Gson,D,1
+258,在 Jackson 库中，如何将 JSON 字符串转换为 Java 对象？,JSON解析,ObjectMapper.readValue(),JsonMapper.fromJson(),JsonConverter.toJava(),JsonReader.parse(),A,1
+259,哪个方法用于将 Java 对象转换为 JSON 字符串？,JSON解析,toJson(),toString(),convertToJson(),parseJson(),A,1
+260,在 Jackson 库中，如何将 Java 对象转换为 JSON 字符串？,JSON解析,ObjectMapper.toJson(),ObjectMapper.writeValueAsString(),JsonConverter.toJson(),JsonWriter.write(),B,1
+261,以下哪种是解析 JSON 的最佳实践？,JSON解析,直接使用字符串操作,使用正则表达式,使用专门的 JSON 库,手动解析每个字符,C,1
+262,在 Gson 中，如何解析嵌套的 JSON 对象？,JSON解析,使用 JsonObject 类,使用 JsonParser 类,使用 JsonArray 类,使用 JsonConverter 类,A,2
+263,在 Jackson 中，如何解析 JSON 数组？,JSON解析,使用 ObjectMapper.readValue(),使用 JsonArray.read(),使用 JsonParser.parseArray(),使用 JsonNode.readTree(),A,2
+264,使用 Json-simple 库，如何将 JSON 字符串解析为 JSONObject？,JSON解析,JsonObject.parse(),JsonParser.parseObject(),JSONValue.parse(),JSONParser.parse(),D,1
+265,在 Gson 库中，哪个类用于解析 JSON 数组？,JSON解析,JsonArray,JsonParser,JsonElement,JsonConverter,A,1
+267,在Java多线程中，请用下面哪种方式不会使线程进入阻塞状态,Java多线程,sleep(),Suspend(),wait(),yield(),D,1
+268,在Java中，以下哪个类或接口用于实现多线程？,Java多线程,Process,Thread,Future,Callable,B,1
+269,在Java中，哪个类是线程安全的并适合用于多线程环境中的信息共享？,"Java多线程信息共享,Java并发数据结构",ArrayList,HashMap,ConcurrentHashMap,LinkedList,C,1
+270,使用Executor框架管理线程池时，如何确保任务的结果可以在线程间安全共享？,"Java并发框架Executor,Java多线程信息共享",使用Thread类的start()方法,使用Runnable接口,使用Callable接口和Future类,使用synchronized关键字,C,1
+271,在 Java 中，哪个包提供了并发数据结构？,Java并发数据结构,java.util.concurrent,java.util,java.lang,java.io,A,0
+272,哪种并发数据结构用于实现线程安全的队列？,Java并发数据结构,ConcurrentLinkedQueue,ArrayList,HashSet,TreeMap,A,1
+273,在 java.util.concurrent 包中，哪个类提供了阻塞队列的实现？,Java并发数据结构,BlockingQueue,ConcurrentHashMap,CopyOnWriteArrayList,ConcurrentSkipListSet,A,1
+274,哪种数据结构允许多个线程并发访问且不需要同步？,Java并发数据结构,CopyOnWriteArrayList,LinkedList,HashMap,TreeSet,A,2
+275,在 ConcurrentHashMap 中，哪种机制用于实现线程安全？,Java并发数据结构,分段锁,对象锁,自旋锁,重入锁,A,2
+276,哪种并发集合允许线程安全地添加和删除元素，但不保证顺序？,Java并发数据结构,ConcurrentSkipListSet,ConcurrentLinkedQueue,LinkedBlockingQueue,PriorityBlockingQueue,B,1
+277,CopyOnWriteArrayList 适用于以下哪种情况？,Java并发数据结构,读多写少,写多读少,读写均衡,读写频繁,A,2
+278,在 java.util.concurrent 包中，哪种数据结构是线程安全的映射表实现？,Java并发数据结构,ConcurrentHashMap,HashMap,Hashtable,TreeMap,A,1
+279,哪种数据结构在插入和删除时会自动调整大小，并且是线程安全的？,Java并发数据结构,ArrayBlockingQueue,LinkedBlockingQueue,ConcurrentLinkedDeque,PriorityBlockingQueue,B,2
+280,在 ConcurrentSkipListMap 中，如何保证线程安全？,Java并发数据结构,通过分段锁,通过锁分离,通过跳表,通过自旋锁,C,2
+281,在 Java 中，哪个类用于实现线程间的协作？,Java并发协作控制,Thread,Runnable,Object,Condition,D,1
+282,哪种机制可以让一个线程等待另一个线程完成后再继续执行？,Java并发协作控制,sleep(),join(),notify(),yield(),B,0
+283,在 synchronized 块中，哪个方法用于唤醒等待的线程？,Java并发协作控制,sleep(),join(),notify(),yield(),C,0
+284,在 java.util.concurrent 包中，哪个类用于实现信号量机制？,Java并发协作控制,Semaphore,CountDownLatch,CyclicBarrier,Exchanger,A,1
+285,在 CountDownLatch 中，哪种方法用于等待计数器归零？,Java并发协作控制,await(),countDown(),getCount(),reset(),A,1
+286,在 CyclicBarrier 中，哪种方法用于等待所有线程到达屏障？,Java并发协作控制,await(),countDown(),getCount(),reset(),A,1
+287,在 Java 中，哪种机制用于确保只有一个线程能够执行某段代码？,Java并发协作控制,volatile 关键字,synchronized 关键字,transient 关键字,static 关键字,B,0
+288,在 java.util.concurrent.locks 包中，哪个接口用于实现显式锁定？,Java并发协作控制,Lock,ReentrantLock,Condition,Semaphore,A,1
+289,在 ReentrantLock 中，如何实现公平锁？,Java并发协作控制,new ReentrantLock(true),new ReentrantLock(false),new ReentrantLock(),new ReentrantLock(公平),A,2
+290,在 Java 中，哪种机制用于控制线程的执行顺序？,Java并发协作控制,ExecutorService,ThreadPool,Thread.join(),Thread.sleep(),C,0
+291,在 Java 中，哪个类用于调度定时任务？,Java定时任务执行,Timer,Thread,Runnable,Executor,A,1
+292,使用 java.util.Timer 类时，如何安排一次性任务？,Java定时任务执行,scheduleAtFixedRate(),schedule(),execute(),run(),B,1
+293,在 ScheduledExecutorService 中，如何安排周期性任务？,Java定时任务执行,schedule(),scheduleAtFixedRate(),execute(),run(),B,1
+294,哪种方法用于取消定时任务？,Java定时任务执行,terminate(),stop(),cancel(),end(),C,1
+295,在 ScheduledExecutorService 中，如何安排延迟任务？,Java定时任务执行,scheduleWithFixedDelay(),scheduleAtFixedRate(),schedule(),execute(),C,1
+296,如何创建一个 ScheduledExecutorService 实例？,Java定时任务执行,Executors.newScheduledThreadPool(),Executors.newFixedThreadPool(),Executors.newCachedThreadPool(),Executors.newSingleThreadExecutor(),A,1
+297,在 Timer 类中，如何安排在指定时间执行的任务？,Java定时任务执行,scheduleAtFixedRate(),schedule(),scheduleAt(),scheduleWithFixedDelay(),B,1
+298,在 ScheduledExecutorService 中，哪种方法用于按固定延迟执行任务？,Java定时任务执行,schedule(),scheduleWithFixedDelay(),execute(),run(),B,1
+299,在 Timer 类中，如何重复执行任务直到 Timer 被取消？,Java定时任务执行,scheduleAtFixedRate(),scheduleWithFixedDelay(),schedule(),execute(),A,1
+300,在 ScheduledExecutorService 中，如何立即执行任务？,Java定时任务执行,schedule(),scheduleAtFixedRate(),execute(),scheduleWithFixedDelay(),C,1
+301,UDP协议是一种()?,Java UDP 编程,面向连接的协议,面向多年的协议,无连接的协议,面向数据的协议,C,0
+302,"在Java中,（）是用于实现UDP协议的核心类。",Java UDP 编程,Socket,ServerSocket,DatagramSocket,sun.net.DatagramSocket,C,1
+303,UDP协议的报文段长度是（）,Java UDP 编程,固定长度,可变长度,最大长度,最小长度,B,0
+304,"在Java中,（）类可以用来创建UDP服务器。",Java UDP 编程,ServerSocket,Socket,DatagramSocket,sun.net.DatagramSocket,A,1
+305,"当使用（）编程时,需要手动处理套接字的关闭操作。",Java UDP 编程,Socket,ServerSocket,DatagramSocket,sun.net.DatagramSocket,A,1
+306,"在Java中,（）是一种用于发送大量数据的技术。",Java UDP 编程,TCP,UDP,HTTP,FTP,B,0
+307,"使用（）编程时,可以设置套接字的发送缓冲区大小。",Java UDP 编程,ServerSocket,Socket,DatagramSocket,sun.net.DatagramSocket,B,0
+308,"在Java中,以下哪个选项不是Socket类型的别名？",Java UDP 编程,Socket,ServerSocket,DatagramSocket,InputStream,D,0
+309,Socket通信流程中，不包括以下哪一步？,Java UDP 编程,建立连接,发送数据,接收数据,关闭连接,D,0
+310,"在Java中,如何判断套接字是否成功建立连接？",Java UDP 编程,调用connect()方法,调用bind()方法,调用accept()方法,调用close()方法,B,0
+311,下列哪些选项不是TCP协议的特点？,Java TCP 编程,面向连接,可靠传输,流控制,高效性,D,0
+312,在 Java 中，哪个类用于创建服务器端的 TCP 连接？,Java TCP 编程,Socket,ServerSocket,DatagramSocket,InetAddress,B,1
+313,哪个类用于在客户端创建 TCP 连接？,Java TCP 编程,Socket,ServerSocket,DatagramSocket,InetAddress,A,1
+314,如何在 Java 中获取客户端发送的数据？,Java TCP 编程,DataInputStream.readLine(),Socket.getInputStream(),BufferedReader.readLine(),ServerSocket.accept(),B,1
+315,在 Java 中，如何向客户端发送数据？,Java TCP 编程,Socket.getOutputStream().write(),DataOutputStream.writeUTF(),PrintWriter.println(),ServerSocket.accept().write(),A,1
+316,在 Java 中，如何关闭 TCP 连接？,Java TCP 编程,Socket.stop(),Socket.terminate(),Socket.close(),Socket.end(),C,1
+317,在 TCP 通信中，如何监听特定端口？,Java TCP 编程,new ServerSocket(port),new Socket(port),new DatagramSocket(port),new InetAddress(port),A,1
+318,在 Java 中，哪个类用于读取从客户端发送的数据？,Java TCP 编程,InputStreamReader,DataInputStream,BufferedReader,OutputStream,B,1
+319,如何在 Java 中创建一个新的 TCP 连接？,Java TCP 编程,"new Socket(host, port)",new ServerSocket(port),new DatagramSocket(port),"new InetAddress(host, port)",A,1
+320,在 Java 中，如何获取本地主机地址？,Java TCP 编程,InetAddress.getLocalHost(),InetAddress.getByName(localhost),InetAddress.getHostAddress(),InetAddress.getLoopbackAddress(),A,1
+321,在 Java 中，如何检查 Socket 是否已连接？,Java TCP 编程,Socket.isConnected(),Socket.isBound(),Socket.isClosed(),Socket.isValid(),A,1
+322,"在Java中,如何设置套接字的发送缓冲区大小？",Java UDP 编程,bind()方法,listen()方法,setSendBufferSize()方法,close()方法,C,0
+323,下列哪些选项不是Java网络编程的常见任务？,网络基础知识,创建服务器,创建客户端,处理网络数据,管理网络设备,D,0
+324,"在Java中,如何处理套接字异常？",网络基础知识,catch SocketException e,throw SocketException e,ignore SocketException e,handle SocketException e,A,0
+325,以下哪种情况不是Java UDP编程中常用的多线程方式？,Java UDP 编程,使用ThreadGroup类创建线程组,使用Runnable接口实现线程,在DatagramSocket的run()方法中使用ThreadGroup的start()方法启动线程,在DatagramSocket的run()方法中使用Runnable接口的run()方法启动线程,A,1
+326,"在Java中,使用UDP协议实现实时音视频通信一般使用（）。",Java UDP 编程,Socket,ServerSocket,DatagramSocket,java.util.concurrent.ExecutorService,C,1
+328,以下选项中有关Connection描述错误的是（）,JDBC操作,Connection是Java程序与数据库建立的连接对象，这个对象只能用来连接数据库，不能执行SQL语句。,JDBC的数据库事务控制要靠Connection对象完成。,Connection对象使用完毕后要及时关闭，否则会对数据库造成负担。,只用MySQL和Oracle数据库的JDBC程序需要创建Connection对象，其他数据库的JDBC程序不用创建Connection对象就可以执行CRUD操作,D,1
+329,下面的描述错误的是（）,JDBC操作,Statement的executeQuery()方法会返回一个结果集,statement的executeUpdate()方法会返回是否更新成功的boolean值,Statement的execute ()方法会返回boolean值 ，含义是是否返回结果集,Statement的executeUpdate()方法会返回值是int类型，含义是DML操作影响记录数,B,1
+330,SELECT COUNT(*) FROM emp;这条SQL语句执行，如果员工表中没有任何数据，那么ResultSet中将会是（）,数据库和SQL,结果为null,有数据,不为null，但是没有数据,以上都选项都不对,B,0
+331,以下选项关于PreparedStatement的说法错误的是（）,数据库和SQL,PreparedStatement继承了Statement ，可以执行预编译的SQL语句,PreparedStatement可以有效的防止SQL注入,PreparedStatement只能执行带问号占位符的预编译SQL，不能执行SQL语句,PreparedStatement可以存储预编译的SQL语句，从而提升执行效率,C,1
+332,"如果为下列预编译SQL的第三个问号赋值，那么正确的选项是（）（选择一项）UPDATE emp SET ename=?,job=?,salary=? WHERE empno=?",数据库和SQL,"pst.setInt(""3"",2000);","pst.setInt(3,2000);","pst.setFloat(""salary"",2000);","pst.setString(""salary"",""2000"");",B,0
+334,RMI除了使用javac编译外，还需要使用（ ）生成stub和skeleton,Java调用Java程序(RMI),rmiregistry.exe,rmid.exe,java.exe,rmic.exe,D,0
+335,在RMI服务端程序中，通过（ ）实现服务对象与URI绑定,Java调用Java程序(RMI),"bind(“rmi:URI”, serviceObj)","open(“rmi:URI”, serviceObj)","rebind(“rmi:URI”, serviceObj)","reopen(“rmi:URI”, serviceObj)",C,0
+336,在RMI客户端程序中，通过（ ）查找指定的服务对象,Java调用Java程序(RMI),list,lookup,search,get,B,0
+337,RMI中安全策略文件的后缀名是（ ）,Java调用Java程序(RMI),policy,grant,permission,txt,A,0
+338,在 JNI 中，如何声明一个本地方法（native method）？,Java调用C程序(JNI),public static void nativeMethod(),"native int nativeMethod(int arg1, float arg2);",native void nativeMethod();,public native void nativeMethod();,D,0
