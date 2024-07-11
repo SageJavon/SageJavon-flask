@@ -1,5 +1,5 @@
 import numpy as np
-import mysql.connector
+# import mysql.connector
 import asyncio
 import json
 from threading import Thread
@@ -251,61 +251,61 @@ ss_table = sparse.load_npz(
     './data/ss_table.npz').toarray()
 
 
-# MySQL数据库连接配置
-db_config = {
-    'host': 'mysql.mysql',
-    'database': 'sage_javon',
-    'user': 'root',
-    'password': os.getenv('MYSQL_PASSWORD'),
-    'port': '3306'  # 默认MySQL端口
-}
+# # MySQL数据库连接配置
+# db_config = {
+#     'host': 'mysql.mysql',
+#     'database': 'sage_javon',
+#     'user': 'root',
+#     'password': os.getenv('MYSQL_PASSWORD'),
+#     'port': '3306'  # 默认MySQL端口
+# }
 
 
-@urls_bp.route('/get_knowledge_graph', methods=['GET'])
-def get_knowledge_graph():
-    s_list = request.args.get('sList')
-    try:
-        s_list = [int(s) for s in s_list.split(',')]
+# @urls_bp.route('/get_knowledge_graph', methods=['GET'])
+# def get_knowledge_graph():
+#     s_list = request.args.get('sList')
+#     try:
+#         s_list = [int(s) for s in s_list.split(',')]
 
-    except Exception:
-        return {
-            'msg': '输入格式有误'
-        }
-    s_data = [s for s in s_list]
-    for s in s_data:
-        adjusted_id = s['id'] + 398  # 假设原始数据的起始id是1
-        s['id'] = adjusted_id
-    # 元素格式:{'id': int, 'name': str}
-    s_links = []
-    for idx0, s0 in enumerate(s_list):
-        s_related = np.where(ss_table[s0] > 0)[0].tolist()  # 有关联的知识点
-        print(s_related)
-        for s1 in s_related:
-            if s1 not in s_data:
-                s_data.append(s1)
-            if ({'source': s_data.index(s1), 'target': idx0} not in s_links) and \
-                    ({'source': idx0, 'target': s_data.index(s1)} not in s_links):  # 正向或反向存在其一就不用添加了
-                s_links.append({'source': idx0, 'target': s_data.index(s1)})
-    s_data = [{'id': s} for s in s_data]  # 转化为字典数组
-    ic(s_data)
+#     except Exception:
+#         return {
+#             'msg': '输入格式有误'
+#         }
+#     s_data = [s for s in s_list]
+#     for s in s_data:
+#         adjusted_id = s['id'] + 398  # 假设原始数据的起始id是1
+#         s['id'] = adjusted_id
+#     # 元素格式:{'id': int, 'name': str}
+#     s_links = []
+#     for idx0, s0 in enumerate(s_list):
+#         s_related = np.where(ss_table[s0] > 0)[0].tolist()  # 有关联的知识点
+#         print(s_related)
+#         for s1 in s_related:
+#             if s1 not in s_data:
+#                 s_data.append(s1)
+#             if ({'source': s_data.index(s1), 'target': idx0} not in s_links) and \
+#                     ({'source': idx0, 'target': s_data.index(s1)} not in s_links):  # 正向或反向存在其一就不用添加了
+#                 s_links.append({'source': idx0, 'target': s_data.index(s1)})
+#     s_data = [{'id': s} for s in s_data]  # 转化为字典数组
+#     ic(s_data)
 
-    # Establish MySQL connection
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    for s in s_data:
-        cursor.execute(
-            "SELECT id, knowledge, num_q FROM knowledge WHERE id = %s", (s['id'],))
-        skill = cursor.fetchone()
-        # skill = Knowledge.query.get(s['id'])
-        s['knowledge'] = str(s['id']) + '-' + \
-            (skill.knowledge if skill.knowledge is not None else 'Unknown Skill')
-        s['symbolSize'] = (skill.num_q + 20) / 4
-    ic(s_data, s_links)
-    cursor.close()
-    conn.close()
-    return {
-        'data': {
-            'data': s_data,
-            'links': s_links
-        }
-    }
+#     # Establish MySQL connection
+#     conn = mysql.connector.connect(**db_config)
+#     cursor = conn.cursor()
+#     for s in s_data:
+#         cursor.execute(
+#             "SELECT id, knowledge, num_q FROM knowledge WHERE id = %s", (s['id'],))
+#         skill = cursor.fetchone()
+#         # skill = Knowledge.query.get(s['id'])
+#         s['knowledge'] = str(s['id']) + '-' + \
+#             (skill.knowledge if skill.knowledge is not None else 'Unknown Skill')
+#         s['symbolSize'] = (skill.num_q + 20) / 4
+#     ic(s_data, s_links)
+#     cursor.close()
+#     conn.close()
+#     return {
+#         'data': {
+#             'data': s_data,
+#             'links': s_links
+#         }
+#     }
