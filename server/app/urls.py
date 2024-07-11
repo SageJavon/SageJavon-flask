@@ -243,14 +243,6 @@ def get_isolated_url_sub_content_list():
             conn.close()
 
 
-qq_table = sparse.load_npz(
-    './data/qq_table.npz').toarray()
-qs_table = sparse.load_npz(
-    './data/qs_table.npz').toarray()
-ss_table = sparse.load_npz(
-    './data/ss_table.npz').toarray()
-
-
 # # MySQL数据库连接配置
 # db_config = {
 #     'host': 'mysql.mysql',
