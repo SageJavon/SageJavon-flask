@@ -15,6 +15,10 @@ from server.app.utils.url_helper import is_valid_url, normalize_url
 from server.logger.logger_config import my_logger as logger
 from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawlerSiteContent
 
+from prompt import TASK_PROMPTS
+from zhipuai import ZhipuAI
+import re
+
 
 urls_bp = Blueprint('urls', __name__, url_prefix='/open_kf_api/urls')
 
@@ -243,61 +247,123 @@ def get_isolated_url_sub_content_list():
             conn.close()
 
 
-# # MySQL数据库连接配置
-# db_config = {
-#     'host': 'mysql.mysql',
-#     'database': 'sage_javon',
-#     'user': 'root',
-#     'password': os.getenv('MYSQL_PASSWORD'),
-#     'port': '3306'  # 默认MySQL端口
-# }
+@urls_bp.route('/get_code_score', methods=['POST'])
+def score():
+    data = request.get_json()
+    print("进入请求，获取请求数据")
+    print(data)
+    stu_code = data['code']
+    problem = data['question']
+    # 题目id
+    if stu_code is None:
+        print("代码为空，不存在！")
+        return {
+            'code': 0,
+            'msg': '代码不存在',
+            'data': {}
+        }
+    else:
+        # glm-4评分
+        print("进行评分！！")
+        # print(stu_code)
+        score_results = evaluate(problem=problem, output=stu_code)
+        score_json = extract_json_with_regex(score_results)
+        print("score json:", score_json)
+        score = json.loads(score_json)
+        suggestion = suggest(
+            problem=problem, output=stu_code, score=score_results)
+        # e_dict = {
+        #     'usefulness':score['usefulness'],
+        #     'functional correctness':score['functional correctness'],
+        #     'coding style':score['coding style'],
+        #     'suggestion':suggestion }
+
+        return {
+            'code': 1,
+            'msg': "成功！",
+            'data': {
+                'usefulness': score['usefulness'],
+                'functional correctness': score['functional correctness'],
+                'coding style': score['coding style'],
+                'suggestion': suggestion
+            }
+        }
+
+    # 存给数据库
 
 
-# @urls_bp.route('/get_knowledge_graph', methods=['GET'])
-# def get_knowledge_graph():
-#     s_list = request.args.get('sList')
-#     try:
-#         s_list = [int(s) for s in s_list.split(',')]
+# 调用glm-4评分
 
-#     except Exception:
-#         return {
-#             'msg': '输入格式有误'
-#         }
-#     s_data = [s for s in s_list]
-#     for s in s_data:
-#         adjusted_id = s['id'] + 398  # 假设原始数据的起始id是1
-#         s['id'] = adjusted_id
-#     # 元素格式:{'id': int, 'name': str}
-#     s_links = []
-#     for idx0, s0 in enumerate(s_list):
-#         s_related = np.where(ss_table[s0] > 0)[0].tolist()  # 有关联的知识点
-#         print(s_related)
-#         for s1 in s_related:
-#             if s1 not in s_data:
-#                 s_data.append(s1)
-#             if ({'source': s_data.index(s1), 'target': idx0} not in s_links) and \
-#                     ({'source': idx0, 'target': s_data.index(s1)} not in s_links):  # 正向或反向存在其一就不用添加了
-#                 s_links.append({'source': idx0, 'target': s_data.index(s1)})
-#     s_data = [{'id': s} for s in s_data]  # 转化为字典数组
-#     ic(s_data)
+def evaluate(problem, output, reference=None, task="code-gen", aspect="usefulness"):
 
-#     # Establish MySQL connection
-#     conn = mysql.connector.connect(**db_config)
-#     cursor = conn.cursor()
-#     for s in s_data:
-#         cursor.execute(
-#             "SELECT id, knowledge, num_q FROM knowledge WHERE id = %s", (s['id'],))
-#         skill = cursor.fetchone()
-#         # skill = Knowledge.query.get(s['id'])
-#         s['knowledge'] = str(s['id']) + '-' + \
-#             (skill.knowledge if skill.knowledge is not None else 'Unknown Skill')
-#         s['symbolSize'] = (skill.num_q + 20) / 4
-#     ic(s_data, s_links)
-#     cursor.close()
-#     conn.close()
-#     return {
-#         'data': {
-#             'data': s_data,
-#             'links': s_links
-#         }
-#     }
+    prompts = TASK_PROMPTS[task][aspect]["reference-enhanced"]
+    prompts = prompts.replace(
+        "{{PROBLEM}}", problem).replace("{{OUTPUT}}", output)
+    # 请填写您自己的APIKey
+    client = ZhipuAI(
+        api_key="b0ad56a7d242ea250dc91314011c6d62.93hSt0HhQyIZOCwR")
+    response = client.chat.completions.create(
+        model="glm-4",
+        messages=[
+            {"role": "user", "content": prompts},
+        ],
+    )
+
+    raw_output = response.choices[0].message.content
+    print(raw_output)
+    return raw_output
+
+
+def suggest(problem, output, score, task='code-gen', aspect='suggestion'):
+    prompts = TASK_PROMPTS[task][aspect]["reference-enhanced"]
+    prompts = prompts.replace("{{PROBLEM}}", problem).replace(
+        "{{OUTPUT}}", output).replace("{{SCORE}}", score)
+
+    # 请填写您自己的APIKey
+    client = ZhipuAI(
+        api_key="b0ad56a7d242ea250dc91314011c6d62.93hSt0HhQyIZOCwR")
+    response = client.chat.completions.create(
+        model="glm-4",  # 填写需要调用的模型名称
+        messages=[
+            {"role": "user", "content": prompts},
+        ],
+    )
+
+    raw_output = response.choices[0].message.content
+    print(raw_output)
+    return raw_output
+
+
+# def extract_json_with_regex(text):
+#     pattern = r'```json\s*(.*?)\s*```'
+#     match = re.search(pattern, text, re.DOTALL)
+#     if match:
+#         return match.group(1)
+#     else:
+#         return text
+
+
+# def extract_json_with_regex(text):
+#     pattern = r'\{(.*?)\}'
+#     match = re.search(pattern, text, re.DOTALL)
+#     if match:
+#         return match.group(1)
+#     else:
+#         return None
+
+
+def extract_json_with_regex(text):
+    # 查找第一个花括号之间的内容
+    start_index = text.find('{')
+    end_index = text.find('}')
+    json_str = text[start_index:end_index + 1]
+
+    try:
+        # 尝试解析为JSON
+        json_data = json.loads(json_str)
+        # 转换为去除多余字符和换行符的JSON格式字符串
+        cleaned_json_str = json.dumps(json_data, separators=(',', ':'))
+        return cleaned_json_str
+    except json.JSONDecodeError:
+        # 如果解析失败，返回空字符串或其他适当的处理方式
+        return ''
