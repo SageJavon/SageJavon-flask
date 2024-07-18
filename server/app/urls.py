@@ -18,6 +18,7 @@ from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawler
 # from prompt import TASK_PROMPTS
 from zhipuai import ZhipuAI
 import re
+import os
 
 
 TASK_PROMPTS = {
