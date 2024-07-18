@@ -472,8 +472,8 @@ def score():
             'msg': "成功！",
             'data': {
                 'usefulness': score['usefulness'],
-                'functional correctness': score['functional correctness'],
-                'coding style': score['coding style'],
+                'functional correctness': score['functionalCorrectness'],
+                'coding style': score['codingStyle'],
                 'suggestion': suggestion
             }
         }
@@ -490,7 +490,7 @@ def evaluate(problem, output, reference=None, task="code-gen", aspect="usefulnes
         "{{PROBLEM}}", problem).replace("{{OUTPUT}}", output)
     # 请填写您自己的APIKey
     client = ZhipuAI(
-        api_key="b0ad56a7d242ea250dc91314011c6d62.93hSt0HhQyIZOCwR")
+        api_key=os.getenv('ZHIPUAI_API_KEY'))
     response = client.chat.completions.create(
         model="glm-4",
         messages=[
@@ -510,7 +510,7 @@ def suggest(problem, output, score, task='code-gen', aspect='suggestion'):
 
     # 请填写您自己的APIKey
     client = ZhipuAI(
-        api_key="b0ad56a7d242ea250dc91314011c6d62.93hSt0HhQyIZOCwR")
+        api_key=os.getenv('ZHIPUAI_API_KEY'))
     response = client.chat.completions.create(
         model="glm-4",  # 填写需要调用的模型名称
         messages=[
