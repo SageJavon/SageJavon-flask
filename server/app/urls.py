@@ -15,7 +15,7 @@ from server.app.utils.url_helper import is_valid_url, normalize_url
 from server.logger.logger_config import my_logger as logger
 from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawlerSiteContent
 from server.app.test_kt_interface import fetch_exercise_records
-from prompt import TASK_PROMPTS
+# from prompt import TASK_PROMPTS
 from zhipuai import ZhipuAI
 import re
 import os
@@ -38,7 +38,7 @@ qq_table = sparse.load_npz('./data/qq_table.npz').toarray()
 qs_table = sparse.load_npz('./data/qs_table.npz').toarray()
 ss_table = sparse.load_npz('./data/ss_table.npz').toarray()
 
-print(model)
+
 TASK_PROMPTS = {
     "code-gen": {
         "functionalCorrectness":
@@ -257,6 +257,7 @@ def async_isolated_url_content_task(url_dict: Dict[int, str], task_type: int) ->
 
 
 @urls_bp.route('/submit_isolated_url_list', methods=['POST'])
+@token_required
 def submit_isolated_url_list() -> Dict[str, Any]:
     data = request.json
     url_list = data.get('url_list')
@@ -332,6 +333,7 @@ def submit_isolated_url_list() -> Dict[str, Any]:
 
 
 @urls_bp.route('/get_isolated_url_list', methods=['POST'])
+@token_required
 def get_isolated_url_list():
     data = request.json
     url_id_list = data.get('id_list', None)  # Make site an optional parameter
@@ -362,6 +364,7 @@ def get_isolated_url_list():
 
 
 @urls_bp.route('/delete_isolated_url_list', methods=['POST'])
+@token_required
 def delete_isolated_url_list():
     data = request.json
     url_id_list = data.get('id_list')
@@ -393,6 +396,7 @@ def delete_isolated_url_list():
 
 
 @urls_bp.route('/get_isolated_url_sub_content_list', methods=['POST'])
+@token_required
 def get_isolated_url_sub_content_list():
     data = request.json
     url_id = data.get('id')
