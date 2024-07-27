@@ -26,8 +26,6 @@ import sys
 # 获取当前脚本的绝对路径
 script_dir = os.path.dirname(__file__)
 
-sys.path.append(os.path.join(script_dir, 'gikt.py'))
-
 # 使用绝对路径加载模型和数据文件
 model_path = os.path.join(script_dir, 'model-100/result.pt')
 qq_table_path = os.path.join(script_dir, 'data/qq_table.npz')
