@@ -37,7 +37,7 @@ question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
 idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
 
 print(question2idx_path)
-print(idx2question_path)
+print(os.getenv('LLM_NAME'))
 
 # 加载模型和数据文件
 model = torch.load(model_path)
