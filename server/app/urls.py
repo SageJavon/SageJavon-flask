@@ -19,6 +19,7 @@ from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawler
 from zhipuai import ZhipuAI
 import re
 import os
+import torch
 
 
 model = torch.load(f='../alg/model-100/result.pt')
