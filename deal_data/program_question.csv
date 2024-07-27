@@ -1,4 +1,4 @@
-problem_id,problem_text,skill_name,choiceA,choiceB,choiceC,choiceD,answer,"level(0,1,2)(表示三个难度等级"
+problem_id,problem_text,skill_name,choiceA,choiceB,choiceC,choiceD,answer,level
 1,"搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。
 ```java
 public class HelloWorld {
