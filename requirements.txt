@@ -30,3 +30,5 @@ numpy==1.26.4
 openpyxl==3.1.2
 mysql-connector-python
 torch==2.0.1
+scipy
+heapq

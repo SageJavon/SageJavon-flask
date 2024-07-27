@@ -14,13 +14,15 @@ from server.app.utils.diskcache_lock import diskcache_lock
 from server.app.utils.url_helper import is_valid_url, normalize_url
 from server.logger.logger_config import my_logger as logger
 from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawlerSiteContent
-
+from server.app.test_kt_interface import fetch_exercise_records
 # from prompt import TASK_PROMPTS
 from zhipuai import ZhipuAI
 import re
 import os
 import torch
 import sys
+from scipy import sparse
+import heapq
 
 
 # 获取当前脚本的绝对路径
