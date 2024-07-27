@@ -1,15 +1,16 @@
+import os
 import torch
 import numpy as np
-from scipy import sparse
 
-question2idx = np.load('./data/question2idx.npy',
-                       allow_pickle=True).item()
-idx2question = np.load('./data/idx2question.npy',
-                       allow_pickle=True).item()
-model = torch.load(f='./model-100/result.pt')
-qq_table = sparse.load_npz('./data/qq_table.npz').toarray()
-qs_table = sparse.load_npz('./data/qs_table.npz').toarray()
-ss_table = sparse.load_npz('./data/ss_table.npz').toarray()
+# 获取当前脚本的绝对路径
+script_dir = os.path.dirname(__file__)
 
+# 使用绝对路径加载模型和数据文件
+question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
+idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
 
-print(model)
+print(question2idx_path)
+print(idx2question_path)
+
+question2idx = np.load(question2idx_path, allow_pickle=True).item()
+idx2question = np.load(idx2question_path, allow_pickle=True).item()
