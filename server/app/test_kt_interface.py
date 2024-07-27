@@ -2,7 +2,7 @@ import mysql.connector
 import json
 from decimal import Decimal
 from datetime import datetime
-
+import os
 
 def convert_to_dict(cursor, row):
     """Convert MySQL row to dictionary with handling for Decimal type."""
@@ -107,6 +107,3 @@ def fetch_exercise_records(student_id):
             conn.close()
             print('MySQL connection closed')
 
-
-# 使用例子：假设要查询学生id为53167的答题记录及相关知识，并以 JSON 格式输出
-fetch_exercise_records(53167)
