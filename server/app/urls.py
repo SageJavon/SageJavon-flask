@@ -36,7 +36,7 @@ ss_table_path = os.path.join(script_dir, 'data/ss_table.npz')
 question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
 idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
 
-
+print(model_path)
 model = torch.load(f=model_path)
 qq_table = sparse.load_npz(qq_table_path).toarray()
 qs_table = sparse.load_npz(qs_table_path).toarray()
