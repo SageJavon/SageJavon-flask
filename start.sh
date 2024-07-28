@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 # init SQLite DB
 python create_sqlite_db.py
