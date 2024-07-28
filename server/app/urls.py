@@ -23,39 +23,43 @@ import torch
 import sys
 from scipy import sparse
 import heapq
+from params import *
+import time
+from gikt import GIKT
+from util import gen_gikt_graph, build_adj_list
 
 
 # 获取当前脚本的绝对路径
 script_dir = os.path.dirname(__file__)
 
 # 使用绝对路径加载模型和数据文件
-model_path = os.path.join(script_dir, 'model-100/result.pt')
+model_path = os.path.join(script_dir, 'model-1/result.pth')
 qq_table_path = os.path.join(script_dir, 'data/qq_table.npz')
 qs_table_path = os.path.join(script_dir, 'data/qs_table.npz')
 ss_table_path = os.path.join(script_dir, 'data/ss_table.npz')
 question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
 idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
 
-print(question2idx_path)
-print(os.getenv('LLM_NAME'))
-
-# 加载模型和数据文件
-model = torch.load(model_path)
 qq_table = sparse.load_npz(qq_table_path).toarray()
 qs_table = sparse.load_npz(qs_table_path).toarray()
 ss_table = sparse.load_npz(ss_table_path).toarray()
 question2idx = np.load(question2idx_path, allow_pickle=True).item()
 idx2question = np.load(idx2question_path, allow_pickle=True).item()
+num_question = torch.tensor(qs_table.shape[0], device=DEVICE)
+num_skill = torch.tensor(qs_table.shape[1], device=DEVICE)
 
+q_neighbors_list, s_neighbors_list = build_adj_list()
+q_neighbors, s_neighbors = gen_gikt_graph(
+    q_neighbors_list, s_neighbors_list, 4, 10)
+q_neighbors = torch.tensor(q_neighbors, dtype=torch.int64, device=DEVICE)
+s_neighbors = torch.tensor(s_neighbors, dtype=torch.int64, device=DEVICE)
 
-# question2idx = np.load('./data/question2idx.npy',
-#                        allow_pickle=True).item()
-# idx2question = np.load('./data/idx2question.npy',
-#                        allow_pickle=True).item()
-# model = torch.load(f='./model-100/result.pt')
-# qq_table = sparse.load_npz('./data/qq_table.npz').toarray()
-# qs_table = sparse.load_npz('./data/qs_table.npz').toarray()
-# ss_table = sparse.load_npz('./data/ss_table.npz').toarray()
+# 初始化模型
+model = GIKT(
+    num_question, num_skill, q_neighbors, s_neighbors, qs_table
+).to(DEVICE)
+
+model.load_state_dict(torch.load(model_path))
 
 
 TASK_PROMPTS = {
