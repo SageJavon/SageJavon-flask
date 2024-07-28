@@ -602,7 +602,7 @@ def extract_json_with_regex(text):
 
 @urls_bp.route('/get_recommend_list', methods=['GET'])
 def recommend():
-    num = 10  # 推荐数量
+    num = int(request.args.get("questionNum"))
     # user_id
     user_id = request.args.get("userId")
     print(user_id)
@@ -610,7 +610,6 @@ def recommend():
         user_id)['exerciseRecordList']  # 获取历史答题记录
     q_list = [question2idx[a['exerciseId']]
               for a in history_answers]  # 获取答题记录的index
-    ic(q_list)
     # 获取相关的习题
     q_set_related = set()  # 所有相关问题的id集合
     for q_id in q_list:

@@ -4,6 +4,7 @@ from decimal import Decimal
 from datetime import datetime
 import os
 
+
 def convert_to_dict(cursor, row):
     """Convert MySQL row to dictionary with handling for Decimal type."""
     d = dict(zip(cursor.column_names, row))
@@ -20,7 +21,8 @@ def fetch_exercise_records(student_id):
             host="mysql.mysql",
             user="root",
             password=os.getenv('MYSQL_PASSWORD'),
-            database="sage_javon"
+            database="sage_javon",
+            port=3306
         )
 
         if conn.is_connected():
@@ -92,9 +94,9 @@ def fetch_exercise_records(student_id):
         result = {
             'exerciseRecordList': exercise_record_list
         }
+        return result
 
         # 打印 JSON 数据（或者可以返回给调用者）
-        print(json.dumps(result, indent=4, ensure_ascii=False))
 
     except mysql.connector.Error as e:
         print("Error connecting to MySQL database:", e)
@@ -106,4 +108,3 @@ def fetch_exercise_records(student_id):
         if 'conn' in locals() and conn.is_connected():
             conn.close()
             print('MySQL connection closed')
-

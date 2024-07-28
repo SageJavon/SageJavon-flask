@@ -97,7 +97,9 @@ class GIKT(Module):
             skills_related_list = [] # [[num_skill1, emb_dim], [num_skill2, emb_dim], ...]
             max_num_skill = 1 # 求一个问题的最多关联的技能的数量
             for i in range(batch_size):
-                skills_index = torch.nonzero(skills_related[i]).squeeze()
+                # modified-zhy
+                skills_related_tensor=torch.tensor(skills_related[i])
+                skills_index = torch.nonzero(skills_related_tensor).squeeze()
                 if len(skills_index.shape) == 0: # 只有一个技能
                     skills_related_list.append(torch.unsqueeze(self.emb_table_skill(skills_index), dim=0)) # [1, emb_dim]
                 else: # 不止一个技能
