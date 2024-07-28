@@ -33,7 +33,7 @@ from util import gen_gikt_graph, build_adj_list
 script_dir = os.path.dirname(__file__)
 
 # 使用绝对路径加载模型和数据文件
-model_path = os.path.join(script_dir, 'model-1/result.pth')
+model_path = os.path.join(script_dir, 'model-1/results.pth')
 qq_table_path = os.path.join(script_dir, 'data/qq_table.npz')
 qs_table_path = os.path.join(script_dir, 'data/qs_table.npz')
 ss_table_path = os.path.join(script_dir, 'data/ss_table.npz')
@@ -45,19 +45,19 @@ qs_table = sparse.load_npz(qs_table_path).toarray()
 ss_table = sparse.load_npz(ss_table_path).toarray()
 question2idx = np.load(question2idx_path, allow_pickle=True).item()
 idx2question = np.load(idx2question_path, allow_pickle=True).item()
-num_question = torch.tensor(qs_table.shape[0], device=DEVICE)
-num_skill = torch.tensor(qs_table.shape[1], device=DEVICE)
+num_question = torch.tensor(qs_table.shape[0], device='cpu')
+num_skill = torch.tensor(qs_table.shape[1], device='cpu')
 
 q_neighbors_list, s_neighbors_list = build_adj_list()
 q_neighbors, s_neighbors = gen_gikt_graph(
     q_neighbors_list, s_neighbors_list, 4, 10)
-q_neighbors = torch.tensor(q_neighbors, dtype=torch.int64, device=DEVICE)
-s_neighbors = torch.tensor(s_neighbors, dtype=torch.int64, device=DEVICE)
+q_neighbors = torch.tensor(q_neighbors, dtype=torch.int64, device='cpu')
+s_neighbors = torch.tensor(s_neighbors, dtype=torch.int64, device='cpu')
 
 # 初始化模型
 model = GIKT(
     num_question, num_skill, q_neighbors, s_neighbors, qs_table
-).to(DEVICE)
+).to('cpu')
 
 model.load_state_dict(torch.load(model_path))
 
@@ -604,8 +604,8 @@ def extract_json_with_regex(text):
 def recommend():
     num = 10  # 推荐数量
     # user_id
-    data = request.get_json()
-    user_id = data['userId']
+    user_id = request.args.get("userId")
+    print(user_id)
     history_answers = fetch_exercise_records(
         user_id)['exerciseRecordList']  # 获取历史答题记录
     q_list = [question2idx[a['exerciseId']]
@@ -657,6 +657,8 @@ def recommend():
     c_list, q_list_recommend = [round(rec[0], 4) for rec in recommend], [
         idx2question[rec[1]] for rec in recommend]
     return {
+        'code': 1,
+        'msg': "success",
         'data': {
             'qList': q_list_recommend,
             'cList': c_list,
