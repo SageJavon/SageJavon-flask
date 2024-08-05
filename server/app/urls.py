@@ -14,7 +14,7 @@ from server.app.utils.diskcache_lock import diskcache_lock
 from server.app.utils.url_helper import is_valid_url, normalize_url
 from server.logger.logger_config import my_logger as logger
 from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawlerSiteContent
-from server.app.test_kt_interface import fetch_exercise_records
+from server.app.test_kt_interface import fetch_exercise_records, cal_stu_knowledge_state_similarity
 # from prompt import TASK_PROMPTS
 from zhipuai import ZhipuAI
 import re
@@ -687,3 +687,76 @@ def recommend():
             'cList': c_list,
         }
     }
+
+
+#最新版本的推荐接口
+@urls_bp.route('/get_recommend_list_with_user_similarity', methods=['GET'])
+def recommend():
+    num = int(request.args.get("questionNum"))
+    # user_id
+    user_id = request.args.get("userId")
+    print(user_id)
+    # 获取所有的相似学生信息
+    similar_users = cal_stu_knowledge_state_similarity(user_id)
+    history_answers = fetch_exercise_records(user_id)['exerciseRecordList']
+    all_questions = fetch_exercise_records(user_id)['exerciseRecordList']
+    print(len(all_questions))
+    for item in similar_users:
+        all_questions.extend(fetch_exercise_records(item)['exerciseRecordList'])
+        print(len(all_questions))
+    q_list_all_questions = [question2idx[a['exerciseId']] for a in all_questions]  # 获取所有答题记录的index
+    # 获取相关的习题
+    q_set_related = set()  # 所有相关问题的id集合
+    for q_id in q_list_all_questions:
+        q_set_related.update(np.where(qq_table[q_id] > 0)[0].tolist())
+    q_list_related = list(q_set_related)  # 所有相关问题的id数组
+    if num > len(q_set_related):  # 相关题目比需要推荐的少，允许[重复]选
+        q_list_related *= int(num / len(q_list_related) + 1)
+    q_list = [question2idx[a['exerciseId']] for a in history_answers] 
+    a_list = [1 if a['score'] >  0 else 0 for a in history_answers]  # 获取答题answer记录
+
+    max_length = 200  # 需要改为传值？
+    question_tensor_list = []
+    answer_tensor_list = []
+    mask_tensor_list = []
+    time_step = len(q_list)
+    for q_related in q_list_related:
+        combined_q_list = q_list + [q_related]  # 原始的答题记录加上最后一道用于预测的题目
+        combined_a_list = a_list + [0]
+        combined_m_list = [1 for i in range(len(combined_q_list))]
+        if len(combined_q_list) < max_length:  # 如果序列长度小于最大长度
+            combined_q_list += [0] * (max_length - len(combined_q_list))
+            combined_a_list += [0] * (max_length - len(combined_a_list))
+            combined_m_list += [0] * (max_length - len(combined_m_list))
+        elif len(combined_q_list) > max_length:
+            combined_q_list = combined_q_list[-max_length:]
+            combined_a_list = combined_a_list[-max_length:]
+            combined_m_list = combined_m_list[-max_length:]
+        question_tensor_list.append(combined_q_list)
+        answer_tensor_list.append(combined_a_list)
+        mask_tensor_list.append(combined_m_list)
+    question_tensor = torch.tensor(question_tensor_list, dtype=torch.int64)
+    answer_tensor = torch.tensor(answer_tensor_list, dtype=torch.int64)
+    mask_tensor = torch.tensor(mask_tensor_list, dtype=torch.int64)
+    # 模型预测
+    c_list = model(
+        question=question_tensor,
+        response=answer_tensor,
+        mask=mask_tensor
+    ).squeeze(dim=0).tolist()
+    # 获取预测结果
+    predict_list = [c_list[i][time_step] for i in range(len(q_list_related))]
+    # 排序预测结果
+    recommend = heapq.nsmallest(num, zip(predict_list, q_list_related))
+    # 四舍五入预测结果，把推荐问题的index转为问题id
+    c_list, q_list_recommend = [round(rec[0], 4) for rec in recommend], [
+        idx2question[rec[1]] for rec in recommend]
+    return {
+        'code': 1,
+        'msg': "success",
+        'data': {
+            'qList': q_list_recommend,
+            'cList': c_list,
+        }
+    }
+
