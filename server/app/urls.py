@@ -564,6 +564,30 @@ def suggest(problem, output, score, task='code-gen', aspect='suggestion'):
     print(raw_output)
     return raw_output
 
+@urls_bp.route('/get_program_tutor', methods=['POST'])
+def program():
+    data = request.get_json()
+    question = data['question']
+    tutor_prompt = "作为编程辅导讲师，你需要一步一步地帮助学生解决编程问题。请确保理解学生的问题，观察他们的解决方法是否正确。如果学生答案有误，提示他们如何改进，而不是直接给出答案。当学生询问如何解决问题时，可以通过提供一些Java知识点来引导他们逐步解决问题，但避免直接给出完整答案。你的目标是教会学生相关知识，并培养他们的算法和编程思维能力。接下来是学生的具体问题："
+    prompt = tutor_prompt + question 
+    # 请填写您自己的APIKey
+    client = ZhipuAI(
+        api_key=os.getenv('ZHIPUAI_API_KEY'))
+    response = client.chat.completions.create(
+        model="glm-4",  # 填写需要调用的模型名称
+        messages=[
+            {"role": "user", "content": prompt},
+        ],
+    )
+    raw_output = response.choices[0].message.content
+    return {
+        'code': 1,
+        'msg': "success",
+        'data': {
+            'response': raw_output
+        }
+    }
+
 
 # def extract_json_with_regex(text):
 #     pattern = r'```json\s*(.*?)\s*```'
