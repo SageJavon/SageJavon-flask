@@ -4,6 +4,8 @@ from decimal import Decimal
 from datetime import datetime
 import os
 import numpy as np
+import torch.nn.functional as F
+import torch
 
 
 def convert_to_dict(cursor, row):
@@ -153,7 +155,7 @@ def cal_stu_knowledge_state_similarity(student_id):
 
         similarity_dict = {}
 
-        threshold = 0.90 # 设置相似度阈值
+        threshold = 0.95 # 设置相似度阈值
 
         for other_student in other_students:
             other_student_id = other_student['id']

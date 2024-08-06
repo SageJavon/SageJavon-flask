@@ -640,7 +640,7 @@ def recommend():
         q_set_related.update(np.where(qq_table[q_id] > 0)[0].tolist())
     q_list_related = list(q_set_related)  # 所有相关问题的id数组
     if num > len(q_list_related):  # 相关题目比需要推荐的少，允许[重复]选
-        q_list_related *= (num / len(q_list_related) + 1)
+        q_list_related *= int(num / len(q_list_related) + 1)
     a_list = [1 if a['score'] >
               0 else 0 for a in history_answers]  # 获取答题answer记录
     max_length = 200  # 需要改为传值？
@@ -691,7 +691,7 @@ def recommend():
 
 #最新版本的推荐接口
 @urls_bp.route('/get_recommend_list_with_user_similarity', methods=['GET'])
-def recommend():
+def recommend_with_user_similarity():
     num = int(request.args.get("questionNum"))
     # user_id
     user_id = request.args.get("userId")
@@ -699,11 +699,14 @@ def recommend():
     # 获取所有的相似学生信息
     similar_users = cal_stu_knowledge_state_similarity(user_id)
     history_answers = fetch_exercise_records(user_id)['exerciseRecordList']
-    all_questions = fetch_exercise_records(user_id)['exerciseRecordList']
+    all_questions = history_answers[:]
+    # print(len(all_questions))
+    print(len(similar_users))
+    for student in similar_users:
+        all_questions.extend(fetch_exercise_records(student[0])['exerciseRecordList'])
+        # print(len(all_questions))
+    print(len(history_answers))
     print(len(all_questions))
-    for item in similar_users:
-        all_questions.extend(fetch_exercise_records(item)['exerciseRecordList'])
-        print(len(all_questions))
     q_list_all_questions = [question2idx[a['exerciseId']] for a in all_questions]  # 获取所有答题记录的index
     # 获取相关的习题
     q_set_related = set()  # 所有相关问题的id集合
