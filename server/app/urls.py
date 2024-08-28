@@ -748,7 +748,7 @@ def recommend_with_user_similarity():
         mask=mask_tensor
     ).squeeze(dim=0).tolist()
     # 获取预测结果
-    predict_list = [c_list[i][time_step] for i in range(len(q_list_related))]
+    predict_list = [abs(c_list[i][time_step] - 0.6) for i in range(len(q_list_related))]
     # 排序预测结果
     recommend = heapq.nsmallest(num, zip(predict_list, q_list_related))
     # 四舍五入预测结果，把推荐问题的index转为问题id
