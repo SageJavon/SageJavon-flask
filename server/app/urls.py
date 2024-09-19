@@ -534,7 +534,7 @@ def evaluate(problem, output, reference=None, task="code-gen", aspect="usefulnes
     client = ZhipuAI(
         api_key=os.getenv('ZHIPUAI_API_KEY'))
     response = client.chat.completions.create(
-        model="glm-4",
+        model=os.getenv('GLM_MODEL_NAME'),
         messages=[
             {"role": "user", "content": prompts},
         ],
