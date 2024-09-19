@@ -218,7 +218,7 @@ TASK_PROMPTS = {
             {
                 "reference-enhanced":
                     """\
-                    You will be given the code snippet,problem and the evaluation results.
+                    You will be given the code snippet(using Java),problem and the evaluation results.
                     Your task is to give Chinese suggestions for code improvements based on three metrics scores.
                     Please make sure you read and understand these instructions carefully.
                     Please keep this document open while reviewing, and refer to it as needed.
