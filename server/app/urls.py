@@ -554,7 +554,7 @@ def suggest(problem, output, score, task='code-gen', aspect='suggestion'):
     client = ZhipuAI(
         api_key=os.getenv('ZHIPUAI_API_KEY'))
     response = client.chat.completions.create(
-        model="glm-4",  # 填写需要调用的模型名称
+        model=os.getenv('GLM_MODEL_NAME'),  # 填写需要调用的模型名称
         messages=[
             {"role": "user", "content": prompts},
         ],
@@ -574,7 +574,7 @@ def program():
     client = ZhipuAI(
         api_key=os.getenv('ZHIPUAI_API_KEY'))
     response = client.chat.completions.create(
-        model="glm-4",  # 填写需要调用的模型名称
+        model=os.getenv('GLM_MODEL_NAME'),  # 填写需要调用的模型名称
         messages=[
             {"role": "user", "content": prompt},
         ],
