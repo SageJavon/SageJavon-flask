@@ -718,7 +718,7 @@ def recommend_with_user_similarity():
     q_list = [question2idx[a['exerciseId']] for a in history_answers] 
     a_list = [1 if a['score'] >  0 else 0 for a in history_answers]  # 获取答题answer记录
 
-    max_length = 200  # 需要改为传值？
+    max_length = 200  # 需要改为传值
     question_tensor_list = []
     answer_tensor_list = []
     mask_tensor_list = []
